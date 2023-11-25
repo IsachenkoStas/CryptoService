@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CryptoUserServiceImpl implements CryptoUserService{
+public class CryptoUserServiceImpl implements CryptoUserService {
 
     private final CryptoUserRepository cryptoUserRepository;
 

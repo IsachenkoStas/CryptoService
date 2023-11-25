@@ -1,64 +1,45 @@
 create table crypto_users
 (
-    id        bigserial
-        primary key,
+    id        bigint      not null AUTO_INCREMENT primary key,
     login     varchar(20) not null,
     password  varchar     not null,
     user_role varchar default 'USER':: character varying not null
 );
 
-create table wallet
+create table accounts
 (
-    id             bigserial
+    id                          bigint
         primary key,
-    wallet_address varchar(10) not null,
-    usd_balance    float       not null,
-    usdt_balance   float       not null,
-    eth            float       not null,
-    btc            float       not null,
-    avax           float       not null,
-    matic          float       not null,
-    sol            float       not null,
-    arb            float       not null,
-    op             float       not null,
-    bnb            float       not null,
-    created        timestamp,
-    crypto_user_id integer     not null
-        constraint wallet_crypto_users_id_fk
-            references crypto_users
-            on update cascade on delete cascade
-);
-
-create table deposits
-(
-    id          bigserial
-        primary key,
-    usdt_amount float   not null,
-    eth_amount  float   not null,
-    wallet_id   integer not null
-        constraint deposits_wallet_id_fk
-            references wallet
-            on update cascade on delete cascade,
-    created     timestamp
+    user_id                     bigint         not null
+        constraint accounts_crypto_users_id_fk
+            references accounts,
+    balance                     decimal(15, 2) not null,
+    currency_code               varchar(4)     not null,
+    account_type                varchar(10)    not null,
+    interest_rate               decimal(5, 4) default null,
+    last_interest_application   timestamp null,
+    interest_compounding_period varchar(10) null,
+    created                     timestamp     default CURRENT_TIMESTAMP
 );
 
 create table transactions
 (
-    id        bigserial
+    id               bigint
         primary key,
-    amount    float   not null,
-    created   timestamp,
-    wallet_id integer not null
-        constraint transactions_wallet_id_fk
-            references wallet
-            on update cascade on delete cascade
+    amount           decimal(15, 2) not null,
+    created          timestamp,
+    account_id       bigint         not null
+        constraint transactions_accounts_id_fk
+            references accounts,
+    transaction_type varchar(20)    not null
 );
 
 create table crypto_rates
 (
-    id              bigserial
+    id              bigint
         primary key,
     base_currency   varchar,
     target_currency varchar,
-    rate            float
+    rate            decimal,
+    last_updated    timestamp
 );

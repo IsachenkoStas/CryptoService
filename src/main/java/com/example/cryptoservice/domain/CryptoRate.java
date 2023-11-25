@@ -4,10 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.Data;
-import org.springframework.stereotype.Component;
 
-@Component
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 @Data
 @Entity(name = "crypto_rates")
 public class CryptoRate {
@@ -22,5 +25,9 @@ public class CryptoRate {
     private String targetCurrency;
 
     @Column(name = "rate")
-    private float rate;
+    private BigDecimal rate;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "last_updated")
+    private LocalDateTime lastUpdated;
 }

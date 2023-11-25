@@ -7,7 +7,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -17,23 +16,37 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@Entity(name = "transactions")
-public class Transaction {
+@Entity(name = "accounts")
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "amount", nullable = false)
-    private BigDecimal amount;
+    @Column(name = "balance", nullable = false)
+    private BigDecimal balance;
 
-    @Column(nullable = false)
+    @Column(name = "currency_code", nullable = false)
     @Enumerated(EnumType.STRING)
-    private TransactionType transactionType;
+    private CurrencyCode currencyCode;
 
-    @ManyToOne
-    private Account account;
+    @Column(name = "account_type", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private AccountType accountType;
+
+    @Column(name = "interest_rate")
+    private BigDecimal interestRate;
+
+    @Column(name = "last_interest_application")
+    private LocalDateTime lastInterestApplication;
+
+    @Column(name = "interest_compounding_period")
+    @Enumerated(EnumType.STRING)
+    private InterestCompoundingPeriod interestCompoundingPeriod;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created")
     private LocalDateTime created;
+
+    @ManyToOne
+    private CryptoUser user;
 }
