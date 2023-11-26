@@ -18,13 +18,13 @@ public class CryptoRate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "base_currency")
+    @Column(name = "base_currency",nullable = false)
     private String baseCurrency;
 
-    @Column(name = "target_currency")
+    @Column(name = "target_currency", nullable = false)
     private String targetCurrency;
 
-    @Column(name = "rate")
+    @Column(name = "rate", nullable = false)
     private BigDecimal rate;
 
     @Temporal(TemporalType.TIMESTAMP)

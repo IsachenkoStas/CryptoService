@@ -8,8 +8,7 @@ create table crypto_users
 
 create table accounts
 (
-    id                          bigint
-        primary key,
+    id                          bigint         not null AUTO_INCREMENT primary key,
     user_id                     bigint         not null
         constraint accounts_crypto_users_id_fk
             references accounts,
@@ -24,8 +23,7 @@ create table accounts
 
 create table transactions
 (
-    id               bigint
-        primary key,
+    id               bigint         not null AUTO_INCREMENT primary key,
     amount           decimal(15, 2) not null,
     created          timestamp,
     account_id       bigint         not null
@@ -36,10 +34,9 @@ create table transactions
 
 create table crypto_rates
 (
-    id              bigint
-        primary key,
-    base_currency   varchar,
-    target_currency varchar,
-    rate            decimal,
-    last_updated    timestamp
+    id              bigint not null AUTO_INCREMENT primary key,
+    base_currency   varchar not null,
+    target_currency varchar not null,
+    rate            decimal not null,
+    last_updated    timestamp default CURRENT_TIMESTAMP
 );
