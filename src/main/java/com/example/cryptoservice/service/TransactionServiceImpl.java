@@ -7,6 +7,8 @@ import com.example.cryptoservice.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class TransactionServiceImpl implements TransactionService {
@@ -20,5 +22,11 @@ public class TransactionServiceImpl implements TransactionService {
 
         return transactionRepository.findTransactionByIdAndAccount_User(transactionId, user)
                 .orElseThrow(() -> new TransactionNotFoundException("Account with id " + transactionId + " not found"));
+    }
+
+    @Override
+    public List<Transaction> getTransactionsByUserId(Long id) {
+        CryptoUser user = userService.findById(id);
+        return transactionRepository.findByAccount_User(user);
     }
 }
