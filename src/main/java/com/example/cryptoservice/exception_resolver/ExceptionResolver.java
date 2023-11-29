@@ -27,4 +27,10 @@ public class ExceptionResolver {
         log.error(String.valueOf(e));
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(NotEnoughMoneyException.class)
+    public ResponseEntity<HttpStatus> notEnoughMoneyException(Exception e) {
+        log.error(String.valueOf(e));
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }

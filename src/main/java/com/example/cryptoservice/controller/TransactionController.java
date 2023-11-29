@@ -1,17 +1,14 @@
 package com.example.cryptoservice.controller;
 
-import com.example.cryptoservice.domain.dto.AccountDetailsDto;
-import com.example.cryptoservice.domain.dto.AccountDto;
 import com.example.cryptoservice.domain.dto.TransactionDetailsDto;
+import com.example.cryptoservice.domain.dto.TransferDto;
 import com.example.cryptoservice.service.TransactionService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +30,11 @@ public class TransactionController {
     public ResponseEntity<List<TransactionDetailsDto>> getTransactionsById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(service.getTransactionsByUserId(id).stream()
                 .map(acc -> modelMapper.map(acc, TransactionDetailsDto.class)).toList(), HttpStatus.OK);
+    }
+
+    @PostMapping("/transfers")
+    public ResponseEntity<HttpStatus> transfer(@RequestBody @Valid TransferDto transferDto) {
+        service.transfer(transferDto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
