@@ -1,9 +1,6 @@
 package com.example.cryptoservice.service;
 
-import com.example.cryptoservice.domain.Account;
-import com.example.cryptoservice.domain.CryptoUser;
-import com.example.cryptoservice.domain.Transaction;
-import com.example.cryptoservice.domain.TransactionType;
+import com.example.cryptoservice.domain.*;
 import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
 import com.example.cryptoservice.domain.dto.WithdrawDto;
@@ -27,6 +24,7 @@ public class TransactionServiceImpl implements TransactionService {
     private final CryptoUserService userService;
     private final TransactionRepository transactionRepository;
     private final AccountService accountService;
+    private final CryptoRateService cryptoRateService;
 
     @Override
     public Transaction getTransactionDetails(Long userId, Long transactionId) {
@@ -110,10 +108,13 @@ public class TransactionServiceImpl implements TransactionService {
         transactionRepository.save(transaction);
     }
 
+    @Transactional
     @Override
     public void swap(TransferDto swap) {
         Account accFrom = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdFrom());
         Account accTo = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdTo());
+        CryptoRate targetRate = cryptoRateService.getRate(accFrom.getCurrencyCode().toString(), accTo.getCurrencyCode().toString());
+        BigDecimal rate = targetRate.getRate();
         if (accFrom.getBalance().compareTo(swap.getAmount()) < 0) {
             throw new NotEnoughMoneyException("Account with id:" + accFrom.getId() + " does not have enough balance to transfer.");
         }
@@ -126,8 +127,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .build();
         transactionRepository.save(transactionAccFrom);
 
-        //TODO: CRYPTO RATES
-        accTo.setBalance(accTo.getBalance().add(swap.getAmount().multiply(BigDecimal.valueOf(2))));
+        accTo.setBalance(accTo.getBalance().add(swap.getAmount().multiply(rate)));
         Transaction transactionAccTo = Transaction.builder()
                 .amount(swap.getAmount())
                 .transactionType(TransactionType.SWAP)

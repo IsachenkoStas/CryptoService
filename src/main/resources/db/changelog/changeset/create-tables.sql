@@ -35,6 +35,6 @@ create table crypto_rates
     id              bigint  not null AUTO_INCREMENT primary key,
     base_currency   varchar not null,
     target_currency varchar not null,
-    rate            decimal not null,
+    rate            decimal(15,6) not null,
     last_updated    timestamp default CURRENT_TIMESTAMP
 );
