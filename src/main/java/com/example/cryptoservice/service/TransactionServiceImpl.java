@@ -4,6 +4,7 @@ import com.example.cryptoservice.domain.Account;
 import com.example.cryptoservice.domain.CryptoUser;
 import com.example.cryptoservice.domain.Transaction;
 import com.example.cryptoservice.domain.TransactionType;
+import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransactionDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
 import com.example.cryptoservice.exception_resolver.AccountNotFoundException;
@@ -30,10 +31,10 @@ public class TransactionServiceImpl implements TransactionService {
     private final ModelMapper modelMapper;
 
     @Override
-    public Transaction createTransaction(Transaction transaction, Long acc_id) {
+    public void createTransaction(Transaction transaction, Long acc_id) {
         Account account = accountService.getById(acc_id);
         transaction.setAccount(account);
-        return transactionRepository.save(transaction);
+        transactionRepository.save(transaction);
     }
 
     @Override
@@ -66,10 +67,23 @@ public class TransactionServiceImpl implements TransactionService {
         }
 //        if (accountFrom.getCurrencyCode().equals(accountTo.getCurrencyCode()))
 
-            accountFrom.setBalance(accountFrom.getBalance().subtract(transfer.getAmount()));
+        accountFrom.setBalance(accountFrom.getBalance().subtract(transfer.getAmount()));
         accountTo.setBalance(accountTo.getBalance().add(transfer.getAmount()));
 
-        TransactionDto transaction = new TransactionDto(transfer.getAmount(), TransactionType.TRANSFER, accountFrom, LocalDateTime.now());
-        createTransaction(modelMapper.map(transaction, Transaction.class), transfer.getAccIdFrom());
+        TransactionDto transferTransaction = new TransactionDto(transfer.getAmount(), TransactionType.TRANSFER, accountFrom, LocalDateTime.now());
+        createTransaction(modelMapper.map(transferTransaction, Transaction.class), transfer.getAccIdFrom());
+    }
+
+    @Override
+    public void deposit(DepositDto deposit) {
+        Account account = accountRepository.getAccountForUpdate(deposit.getAccId())
+                .orElseThrow(() -> new AccountNotFoundException("Account with id " + deposit.getAccId() + " not found"));
+        if (account.getBalance().compareTo(deposit.getAmount()) < 0) {
+            throw new NotEnoughMoneyException("Account with id:" + account.getId() + " does not have enough balance to transfer.");
+        }
+        account.setBalance(account.getBalance().subtract(deposit.getAmount()));
+
+        TransactionDto depositTransaction = new TransactionDto(deposit.getAmount(), TransactionType.DEPOSIT, account, LocalDateTime.now());
+        createTransaction(modelMapper.map(depositTransaction, Transaction.class), deposit.getAccId());
     }
 }

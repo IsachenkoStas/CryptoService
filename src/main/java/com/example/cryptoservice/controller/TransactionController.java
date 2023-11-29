@@ -1,5 +1,6 @@
 package com.example.cryptoservice.controller;
 
+import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransactionDetailsDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
 import com.example.cryptoservice.service.TransactionService;
@@ -35,6 +36,12 @@ public class TransactionController {
     @PostMapping("/transfers")
     public ResponseEntity<HttpStatus> transfer(@RequestBody @Valid TransferDto transferDto) {
         service.transfer(transferDto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/deposits")
+    public ResponseEntity<HttpStatus> deposit(@RequestBody @Valid DepositDto depositDto) {
+        service.deposit(depositDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

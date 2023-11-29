@@ -7,14 +7,12 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class TransferDto {
-    @NotNull
-    private Long accIdFrom;
-
-    @NotNull
-    private Long accIdTo;
+public class DepositDto {
 
     @NotNull
     @Min(value = 0, message = "Transfer amount can not be less than zero")
     private BigDecimal amount;
+
+    @NotNull
+    private Long accId;
 }
