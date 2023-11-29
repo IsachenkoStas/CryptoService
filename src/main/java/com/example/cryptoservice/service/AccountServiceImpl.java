@@ -30,18 +30,20 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account getById(Long id) {
-        return repository.findById(id).orElseThrow(AccountNotFoundException::new);
+        return repository.findById(id)
+                .orElseThrow(() -> new AccountNotFoundException("Account with id " + id + " not found"));
     }
 
     @Override
     public List<Account> getAccsByUserId(Long id) {
-        return repository.findAccountsByUserId(id);
+        return repository.findByUserId(id);
     }
 
     @Override
     public Account getAccountDetails(Long userId, Long accountId) {
         CryptoUser user = userService.findById(userId);
-        return repository.findAccountByIdAndUser(accountId, user).orElseThrow(AccountNotFoundException::new);
+        return repository.findAccountByIdAndUser(accountId, user)
+                .orElseThrow(() -> new AccountNotFoundException("Account with id " + accountId + " not found"));
     }
 
 /*    @Override

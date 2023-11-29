@@ -24,7 +24,7 @@ create table transactions
 (
     id               bigint         not null AUTO_INCREMENT primary key,
     amount           decimal(15, 2) not null,
-    created          timestamp,
+    created          timestamp default CURRENT_TIMESTAMP,
     account_id       bigint         not null,
     transaction_type varchar(20)    not null,
     foreign key (account_id) references accounts(id)

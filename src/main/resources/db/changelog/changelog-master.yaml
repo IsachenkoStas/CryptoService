@@ -5,3 +5,5 @@ databaseChangeLog:
       file: db/changelog/changeset/add-users.sql
   - include:
       file: db/changelog/changeset/add-accounts.sql
+  - include:
+      file: db/changelog/changeset/add-transactions.sql
