@@ -5,21 +5,20 @@ import com.example.cryptoservice.domain.CryptoUser;
 import com.example.cryptoservice.domain.Transaction;
 import com.example.cryptoservice.domain.TransactionType;
 import com.example.cryptoservice.domain.dto.DepositDto;
-import com.example.cryptoservice.domain.dto.TransactionDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
-import com.example.cryptoservice.exception_resolver.AccountNotFoundException;
+import com.example.cryptoservice.domain.dto.WithdrawDto;
 import com.example.cryptoservice.exception_resolver.NotEnoughMoneyException;
+import com.example.cryptoservice.exception_resolver.NotEqualCurrencyException;
 import com.example.cryptoservice.exception_resolver.TransactionNotFoundException;
-import com.example.cryptoservice.repository.AccountRepository;
 import com.example.cryptoservice.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 
 @RequiredArgsConstructor
 @Service
@@ -28,20 +27,10 @@ public class TransactionServiceImpl implements TransactionService {
     private final CryptoUserService userService;
     private final TransactionRepository transactionRepository;
     private final AccountService accountService;
-    private final AccountRepository accountRepository;
-    private final ModelMapper modelMapper;
-
-    @Override
-    public void createTransaction(Transaction transaction, Long acc_id) {
-        Account account = accountService.getById(acc_id);
-        transaction.setAccount(account);
-        transactionRepository.save(transaction);
-    }
 
     @Override
     public Transaction getTransactionDetails(Long userId, Long transactionId) {
         CryptoUser user = userService.findById(userId);
-
         return transactionRepository.findTransactionByIdAndAccount_User(transactionId, user)
                 .orElseThrow(() -> new TransactionNotFoundException("Account with id " + transactionId + " not found"));
     }
@@ -52,64 +41,99 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.findByAccount_User(user);
     }
 
-    @Override
-    public Optional<Transaction> getDepositTransactionByAccId(Long id) {
-        Account account = accountService.getById(id);
-        return transactionRepository.findTransactionByTransactionTypeAndAccount(TransactionType.DEPOSIT, account);
-    }
-
     @Transactional
     @Override
     public void transfer(TransferDto transfer) {
-
-        //TODO: ПРОВЕРИТЬ ОДИНАКОВЫЙ ЛИ CURRENCY_CODE
-
-        Account accountFrom = accountRepository.getAccountForUpdate(transfer.getAccIdFrom())
-                .orElseThrow(() -> new AccountNotFoundException("Account with id " + transfer.getAccIdFrom() + " not found"));
-        Account accountTo = accountRepository.getAccountForUpdate(transfer.getAccIdTo())
-                .orElseThrow(() -> new AccountNotFoundException("Account with id " + transfer.getAccIdTo() + " not found"));
-
+        Account accountFrom = accountService.getAccountDetails(transfer.getUserId(), transfer.getAccIdFrom());
+        Account accountTo = accountService.getById(transfer.getAccIdTo());
         if (accountFrom.getBalance().compareTo(transfer.getAmount()) < 0) {
             throw new NotEnoughMoneyException("Account with id:" + accountFrom.getId() + " does not have enough balance to transfer.");
         }
-//        if (accountFrom.getCurrencyCode().equals(accountTo.getCurrencyCode()))
+        if (!Objects.equals(accountFrom.getCurrencyCode(), accountTo.getCurrencyCode())) {
+            throw new NotEqualCurrencyException("Account with id: " + accountFrom.getId() + " has a different currency code compared to" + accountTo.getId());
+        }
 
         accountFrom.setBalance(accountFrom.getBalance().subtract(transfer.getAmount()));
         accountTo.setBalance(accountTo.getBalance().add(transfer.getAmount()));
 
-        TransactionDto transferTransaction = new TransactionDto(transfer.getAmount(), TransactionType.TRANSFER, accountFrom, LocalDateTime.now());
-        createTransaction(modelMapper.map(transferTransaction, Transaction.class), transfer.getAccIdFrom());
+        Transaction transactionAccFrom = Transaction.builder()
+                .amount(transfer.getAmount())
+                .transactionType(TransactionType.TRANSFER)
+                .account(accountFrom)
+                .created(LocalDateTime.now())
+                .build();
+        transactionRepository.save(transactionAccFrom);
+
+        Transaction transactionAccTo = Transaction.builder()
+                .amount(transfer.getAmount())
+                .transactionType(TransactionType.TRANSFER)
+                .account(accountTo)
+                .created(LocalDateTime.now())
+                .build();
+        transactionRepository.save(transactionAccTo);
     }
 
     @Transactional
     @Override
     public void deposit(DepositDto deposit) {
-        Account account = accountRepository.getAccountForUpdate(deposit.getAccId())
-                .orElseThrow(() -> new AccountNotFoundException("Account with id " + deposit.getAccId() + " not found"));
-        if (account.getBalance().compareTo(deposit.getAmount()) < 0) {
-            throw new NotEnoughMoneyException("Account with id:" + account.getId() + " does not have enough balance to transfer.");
+        Account depAccount = accountService.getAccountDetails(deposit.getUserId(), deposit.getAccountId());
+        if (depAccount.getBalance().compareTo(deposit.getAmount()) < 0) {
+            throw new NotEnoughMoneyException("Account with id:" + depAccount.getId() + " does not have enough balance to transfer.");
         }
-        account.setBalance(account.getBalance().subtract(deposit.getAmount()));
-
-        TransactionDto depositTransaction = new TransactionDto(deposit.getAmount(), TransactionType.DEPOSIT, account, LocalDateTime.now());
-        createTransaction(modelMapper.map(depositTransaction, Transaction.class), deposit.getAccId());
+        depAccount.setBalance(depAccount.getBalance().subtract(deposit.getAmount()));
+        Transaction depositTransaction = Transaction.builder()
+                .amount(deposit.getAmount())
+                .transactionType(TransactionType.DEPOSIT)
+                .account(depAccount)
+                .created(LocalDateTime.now())
+                .build();
+        transactionRepository.save(depositTransaction);
     }
 
     @Transactional
     @Override
-    public void withdraw(DepositDto withdraw) {
-        Account account = accountRepository.getAccountForUpdate(withdraw.getAccId())
-                .orElseThrow(() -> new AccountNotFoundException("Account with id " + withdraw.getAccId() + " not found"));
-
-        Transaction transaction = getDepositTransactionByAccId(account.getId())
-                .orElseThrow(() -> new TransactionNotFoundException("Transaction is not found"));
-        if (transaction.getAmount().compareTo(withdraw.getAmount()) < 0) {
+    public void withdraw(WithdrawDto withdraw) {
+        Account withdrawAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getAccId());
+        Transaction withdrawTransaction = getTransactionDetails(withdraw.getUserId(), withdrawAccount.getId());
+        if (withdrawTransaction.getAmount().compareTo(withdraw.getAmount()) < 0) {
             throw new NotEnoughMoneyException("Wrong amount of money");
         }
-        account.setBalance(account.getBalance().add(withdraw.getAmount()));
-        transaction.setAmount(transaction.getAmount().subtract(withdraw.getAmount()));
+        withdrawAccount.setBalance(withdrawAccount.getBalance().add(withdraw.getAmount()));
+        withdrawTransaction.setAmount(withdrawTransaction.getAmount().subtract(withdraw.getAmount()));
 
-        TransactionDto withdrawTransaction = new TransactionDto(withdraw.getAmount(), TransactionType.WITHDRAW, account, LocalDateTime.now());
-        createTransaction(modelMapper.map(withdrawTransaction, Transaction.class), withdraw.getAccId());
+        Transaction transaction = Transaction.builder()
+                .amount(withdraw.getAmount())
+                .transactionType(TransactionType.WITHDRAW)
+                .account(withdrawAccount)
+                .created(LocalDateTime.now())
+                .build();
+        transactionRepository.save(transaction);
+    }
+
+    @Override
+    public void swap(TransferDto swap) {
+        Account accFrom = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdFrom());
+        Account accTo = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdTo());
+        if (accFrom.getBalance().compareTo(swap.getAmount()) < 0) {
+            throw new NotEnoughMoneyException("Account with id:" + accFrom.getId() + " does not have enough balance to transfer.");
+        }
+        accFrom.setBalance(accFrom.getBalance().subtract(swap.getAmount()));
+        Transaction transactionAccFrom = Transaction.builder()
+                .amount(swap.getAmount())
+                .transactionType(TransactionType.SWAP)
+                .account(accFrom)
+                .created(LocalDateTime.now())
+                .build();
+        transactionRepository.save(transactionAccFrom);
+
+        //TODO: CRYPTO RATES
+        accTo.setBalance(accTo.getBalance().add(swap.getAmount().multiply(BigDecimal.valueOf(2))));
+        Transaction transactionAccTo = Transaction.builder()
+                .amount(swap.getAmount())
+                .transactionType(TransactionType.SWAP)
+                .account(accTo)
+                .created(LocalDateTime.now())
+                .build();
+        transactionRepository.save(transactionAccTo);
     }
 }

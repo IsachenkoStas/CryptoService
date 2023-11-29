@@ -1,8 +1,6 @@
 package com.example.cryptoservice.controller;
 
-import com.example.cryptoservice.domain.dto.DepositDto;
-import com.example.cryptoservice.domain.dto.TransactionDetailsDto;
-import com.example.cryptoservice.domain.dto.TransferDto;
+import com.example.cryptoservice.domain.dto.*;
 import com.example.cryptoservice.service.TransactionService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -34,20 +32,26 @@ public class TransactionController {
     }
 
     @PostMapping("/transfers")
-    public ResponseEntity<HttpStatus> transfer(@RequestBody @Valid TransferDto transferDto) {
+    public ResponseEntity<Void> transfer(@RequestBody @Valid TransferDto transferDto) {
         service.transfer(transferDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PostMapping("/deposits")
-    public ResponseEntity<HttpStatus> deposit(@RequestBody @Valid DepositDto depositDto) {
+    public ResponseEntity<Void> deposit(@RequestBody @Valid DepositDto depositDto) {
         service.deposit(depositDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PostMapping("/withdraw")
-    public ResponseEntity<HttpStatus> withdraw(@RequestBody @Valid DepositDto withdraw) {
+    public ResponseEntity<Void> withdraw(@RequestBody @Valid WithdrawDto withdraw) {
         service.withdraw(withdraw);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/swap")
+    public ResponseEntity<Void> swap(@RequestBody @Valid TransferDto swapDto) {
+        service.swap(swapDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

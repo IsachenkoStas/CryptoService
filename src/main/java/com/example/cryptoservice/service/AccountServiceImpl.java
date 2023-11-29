@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @RequiredArgsConstructor
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -46,7 +47,7 @@ public class AccountServiceImpl implements AccountService {
                 .orElseThrow(() -> new AccountNotFoundException("Account with id " + accountId + " not found"));
     }
 
-/*    @Override
+    /*    @Override
     public boolean deleteAccFromUserById(Long userId, Long accountId) {
         List<Account> accounts = getAccsByUserId(userId);
         for (Account acc : accounts) {

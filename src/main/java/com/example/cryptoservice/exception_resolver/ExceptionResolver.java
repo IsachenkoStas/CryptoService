@@ -11,26 +11,32 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ExceptionResolver {
 
     @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<HttpStatus> userNotFoundException(Exception e) {
-        log.error(String.valueOf(e));
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<String> userNotFoundException(Exception e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(AccountNotFoundException.class)
-    public ResponseEntity<HttpStatus> accountNotFoundException(Exception e) {
-        log.error(String.valueOf(e));
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<String> accountNotFoundException(Exception e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(TransactionNotFoundException.class)
-    public ResponseEntity<HttpStatus> transactionNotFoundException(Exception e) {
-        log.error(String.valueOf(e));
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<String> transactionNotFoundException(TransactionNotFoundException e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(NotEnoughMoneyException.class)
-    public ResponseEntity<HttpStatus> notEnoughMoneyException(Exception e) {
-        log.error(String.valueOf(e));
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<String> notEnoughMoneyException(Exception e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(NotEqualCurrencyException.class)
+    public ResponseEntity<String> notEqualCurrencyException(Exception e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }

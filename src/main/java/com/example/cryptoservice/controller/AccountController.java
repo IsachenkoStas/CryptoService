@@ -33,19 +33,20 @@ public class AccountController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AccountDetailsDto> getAccountDetailsById(@PathVariable("id") Long id) {
+    public ResponseEntity<AccountDetailsDto> getAccountDetailsById(@PathVariable Long id) {
         return new ResponseEntity<>(modelMapper.map(service.getById(id), AccountDetailsDto.class), HttpStatus.OK);
     }
 
     @GetMapping("/user_id/{id}")
-    public ResponseEntity<List<AccountDto>> getAccountsByUserId(@PathVariable("id") Long id) {
+    public ResponseEntity<List<AccountDto>> getAccountsByUserId(@PathVariable Long id) {
         return new ResponseEntity<>(service.getAccsByUserId(id).stream()
                 .map(acc -> modelMapper.map(acc, AccountDto.class)).toList(), HttpStatus.OK);
     }
 
     @GetMapping("/users/{userId}/accounts/{accountId}")
     public ResponseEntity<AccountDetailsDto> getAccDetailsByUserId(@PathVariable Long userId, @PathVariable Long accountId) {
-        return new ResponseEntity<>(modelMapper.map(service.getAccountDetails(userId, accountId), AccountDetailsDto.class), HttpStatus.OK);
+        return new ResponseEntity<>(modelMapper
+                .map(service.getAccountDetails(userId, accountId), AccountDetailsDto.class), HttpStatus.OK);
     }
 
 /*    @DeleteMapping("/delete/{userId}/{accountId}")
