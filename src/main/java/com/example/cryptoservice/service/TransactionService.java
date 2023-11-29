@@ -5,6 +5,7 @@ import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface TransactionService {
 
@@ -14,7 +15,11 @@ public interface TransactionService {
 
     List<Transaction> getTransactionsByUserId(Long id);
 
+    Optional<Transaction> getDepositTransactionByAccId(Long id);
+
     void transfer(TransferDto transferDto);
 
     void deposit(DepositDto deposit);
+
+    void withdraw(DepositDto withdraw);
 }

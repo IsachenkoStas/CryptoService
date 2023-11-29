@@ -44,4 +44,10 @@ public class TransactionController {
         service.deposit(depositDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @PostMapping("/withdraw")
+    public ResponseEntity<HttpStatus> withdraw(@RequestBody @Valid DepositDto withdraw) {
+        service.withdraw(withdraw);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
 }

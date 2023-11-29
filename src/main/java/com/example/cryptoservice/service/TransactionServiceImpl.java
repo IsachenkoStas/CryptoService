@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -51,6 +52,12 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.findByAccount_User(user);
     }
 
+    @Override
+    public Optional<Transaction> getDepositTransactionByAccId(Long id) {
+        Account account = accountService.getById(id);
+        return transactionRepository.findTransactionByTransactionTypeAndAccount(TransactionType.DEPOSIT, account);
+    }
+
     @Transactional
     @Override
     public void transfer(TransferDto transfer) {
@@ -74,6 +81,7 @@ public class TransactionServiceImpl implements TransactionService {
         createTransaction(modelMapper.map(transferTransaction, Transaction.class), transfer.getAccIdFrom());
     }
 
+    @Transactional
     @Override
     public void deposit(DepositDto deposit) {
         Account account = accountRepository.getAccountForUpdate(deposit.getAccId())
@@ -85,5 +93,23 @@ public class TransactionServiceImpl implements TransactionService {
 
         TransactionDto depositTransaction = new TransactionDto(deposit.getAmount(), TransactionType.DEPOSIT, account, LocalDateTime.now());
         createTransaction(modelMapper.map(depositTransaction, Transaction.class), deposit.getAccId());
+    }
+
+    @Transactional
+    @Override
+    public void withdraw(DepositDto withdraw) {
+        Account account = accountRepository.getAccountForUpdate(withdraw.getAccId())
+                .orElseThrow(() -> new AccountNotFoundException("Account with id " + withdraw.getAccId() + " not found"));
+
+        Transaction transaction = getDepositTransactionByAccId(account.getId())
+                .orElseThrow(() -> new TransactionNotFoundException("Transaction is not found"));
+        if (transaction.getAmount().compareTo(withdraw.getAmount()) < 0) {
+            throw new NotEnoughMoneyException("Wrong amount of money");
+        }
+        account.setBalance(account.getBalance().add(withdraw.getAmount()));
+        transaction.setAmount(transaction.getAmount().subtract(withdraw.getAmount()));
+
+        TransactionDto withdrawTransaction = new TransactionDto(withdraw.getAmount(), TransactionType.WITHDRAW, account, LocalDateTime.now());
+        createTransaction(modelMapper.map(withdrawTransaction, Transaction.class), withdraw.getAccId());
     }
 }

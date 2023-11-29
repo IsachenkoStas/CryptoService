@@ -9,3 +9,6 @@ values (3, 20, 'TRANSFER');
 
 insert into transactions (account_id, amount, transaction_type)
 values (2, 25, 'TRANSFER');
+
+insert into transactions (account_id, amount, transaction_type)
+values (3, 300, 'DEPOSIT');
