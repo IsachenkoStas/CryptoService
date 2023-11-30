@@ -1,9 +1,15 @@
 package com.example.cryptoservice.service;
 
-import com.example.cryptoservice.domain.*;
+import com.example.cryptoservice.domain.Account;
+import com.example.cryptoservice.domain.AccountType;
+import com.example.cryptoservice.domain.CryptoRate;
+import com.example.cryptoservice.domain.CryptoUser;
+import com.example.cryptoservice.domain.Transaction;
+import com.example.cryptoservice.domain.TransactionType;
 import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
 import com.example.cryptoservice.domain.dto.WithdrawDto;
+import com.example.cryptoservice.exception_resolver.NotDepositAccountException;
 import com.example.cryptoservice.exception_resolver.NotEnoughMoneyException;
 import com.example.cryptoservice.exception_resolver.NotEqualCurrencyException;
 import com.example.cryptoservice.exception_resolver.TransactionNotFoundException;
@@ -27,6 +33,7 @@ public class TransactionServiceImpl implements TransactionService {
     private final AccountService accountService;
     private final AccountRepository accountRepository;
     private final CryptoRateService cryptoRateService;
+    private final TransactionValidationService transactionValidation;
 
     @Override
     public Transaction getTransactionDetails(Long userId, Long transactionId) {
@@ -46,14 +53,7 @@ public class TransactionServiceImpl implements TransactionService {
     public void transfer(TransferDto transfer) {
         Account accountFrom = accountService.getAccountDetails(transfer.getUserId(), transfer.getAccIdFrom());
         Account accountTo = accountService.getById(transfer.getAccIdTo());
-        if (accountFrom.getBalance().compareTo(transfer.getAmount()) < 0) {
-            throw new NotEnoughMoneyException("Account with id:" + accountFrom.getId() + " does not have enough balance to transfer.");
-        }
-        if (!Objects.equals(accountFrom.getCurrencyCode(), accountTo.getCurrencyCode())) {
-            throw new NotEqualCurrencyException("Account with id: " + accountFrom.getId() + " has a different currency code compared to" + accountTo.getId());
-        }
-
-        accountFrom.setBalance(accountFrom.getBalance().subtract(transfer.getAmount()));
+        transactionValidation.validateTransfer(transfer, accountFrom, accountTo);
         accountTo.setBalance(accountTo.getBalance().add(transfer.getAmount()));
 
         Transaction transactionAccFrom = Transaction.builder()
@@ -77,9 +77,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void deposit(DepositDto deposit) {
         Account depAccount = accountService.getAccountDetails(deposit.getUserId(), deposit.getAccId());
-        if (depAccount.getBalance().compareTo(deposit.getAmount()) < 0) {
-            throw new NotEnoughMoneyException("Account with id:" + depAccount.getId() + " does not have enough balance to transfer.");
-        }
+        transactionValidation.validateDeposit(deposit, depAccount);
         depAccount.setBalance(depAccount.getBalance().subtract(deposit.getAmount()));
         Account acc = Account.builder()
                 .accountType(AccountType.DEPOSIT)
@@ -103,15 +101,9 @@ public class TransactionServiceImpl implements TransactionService {
     public void withdraw(WithdrawDto withdraw) {
         Account withdrawAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getAccId());
         Account depAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getDepAccId());
-        if (depAccount.getBalance().compareTo(withdraw.getAmount()) < 0) {
-            throw new NotEnoughMoneyException("Wrong amount of money");
-        }
-        if (!Objects.equals(withdrawAccount.getCurrencyCode(), depAccount.getCurrencyCode())) {
-            throw new NotEqualCurrencyException("Account with id: " + withdrawAccount.getId() + " has a different currency code compared to" + depAccount.getId());
-        }
+        transactionValidation.validateWithdraw(withdraw, withdrawAccount, depAccount);
         withdrawAccount.setBalance(withdrawAccount.getBalance().add(withdraw.getAmount()));
         depAccount.setBalance(depAccount.getBalance().subtract(withdraw.getAmount()));
-
         Transaction transaction = Transaction.builder()
                 .amount(withdraw.getAmount())
                 .transactionType(TransactionType.WITHDRAW)
@@ -126,11 +118,11 @@ public class TransactionServiceImpl implements TransactionService {
     public void swap(TransferDto swap) {
         Account accFrom = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdFrom());
         Account accTo = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdTo());
+        transactionValidation.validateSwap(accFrom, accTo, swap);
+
         CryptoRate targetRate = cryptoRateService.getCurrencyRate(accFrom.getCurrencyCode().toString(), accTo.getCurrencyCode().toString());
         BigDecimal rate = targetRate.getRate();
-        if (accFrom.getBalance().compareTo(swap.getAmount()) < 0) {
-            throw new NotEnoughMoneyException("Account with id:" + accFrom.getId() + " does not have enough balance to transfer.");
-        }
+
         accFrom.setBalance(accFrom.getBalance().subtract(swap.getAmount()));
         Transaction transactionAccFrom = Transaction.builder()
                 .amount(swap.getAmount())
@@ -148,5 +140,26 @@ public class TransactionServiceImpl implements TransactionService {
                 .created(LocalDateTime.now())
                 .build();
         transactionRepository.save(transactionAccTo);
+    }
+
+    /*private void validateByDepositEquals(Account acc) {
+        if (Objects.equals(acc.getAccountType(), AccountType.DEPOSIT)) {
+            throw new UnsupportedOperationException("Account with id: " + acc.getId() + " is deposit account.");
+        }
+    }*/
+
+    private void validateByDepositNotEquals(Account acc) {
+        if (!Objects.equals(acc.getAccountType(), AccountType.DEPOSIT)) {
+            throw new UnsupportedOperationException("Account with id: " + acc.getId() + " is deposit account.");
+        }
+    }
+
+    @Override
+    public BigDecimal checkMyRewards(Long userId, Long accId) {
+        Account account = accountService.getAccountDetails(userId, accId);
+        if (!Objects.equals(account.getAccountType(), AccountType.DEPOSIT)) {
+            throw new NotDepositAccountException("Account with id: " + accId + " is not deposit account.");
+        }
+        return account.getBalance();
     }
 }

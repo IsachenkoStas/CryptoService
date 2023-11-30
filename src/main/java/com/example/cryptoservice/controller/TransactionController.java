@@ -1,14 +1,23 @@
 package com.example.cryptoservice.controller;
 
-import com.example.cryptoservice.domain.dto.*;
+import com.example.cryptoservice.domain.dto.DepositDto;
+import com.example.cryptoservice.domain.dto.TransactionDetailsDto;
+import com.example.cryptoservice.domain.dto.TransferDto;
+import com.example.cryptoservice.domain.dto.WithdrawDto;
 import com.example.cryptoservice.service.TransactionService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -53,5 +62,9 @@ public class TransactionController {
     public ResponseEntity<Void> swap(@RequestBody @Valid TransferDto swapDto) {
         service.swap(swapDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    @GetMapping("/my-rewards/{userId}/{accId}")
+    private ResponseEntity<BigDecimal> checkMyRewards(@PathVariable Long userId, @PathVariable Long accId){
+        return new ResponseEntity<>(service.checkMyRewards(userId, accId), HttpStatus.OK);
     }
 }

@@ -1,7 +1,6 @@
 package com.example.cryptoservice.service;
 
 import com.example.cryptoservice.domain.CryptoUser;
-import com.example.cryptoservice.exception_resolver.AccountNotFoundException;
 import com.example.cryptoservice.exception_resolver.UserNotFoundException;
 import com.example.cryptoservice.repository.CryptoUserRepository;
 import lombok.RequiredArgsConstructor;

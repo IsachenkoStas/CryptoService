@@ -45,4 +45,16 @@ public class ExceptionResolver {
         log.error(e.getMessage());
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(NotDepositAccountException.class)
+    public ResponseEntity<String> notDepositAccountException(NotDepositAccountException e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UnsupportedOperationByAccountTypeException.class)
+    public ResponseEntity<String> unsupportedOperationByAccountTypeException(UnsupportedOperationByAccountTypeException e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 }
