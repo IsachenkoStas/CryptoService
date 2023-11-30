@@ -15,5 +15,7 @@ public interface AccountService {
 
     Account getAccountDetails(Long userId, Long accountId);
 
+    void updateAllDepositAccounts();
+
     /*    boolean deleteAccFromUserById(Long userId, Long accountId);*/
 }

@@ -38,3 +38,11 @@ create table crypto_rates
     rate            decimal(15, 6) not null,
     last_updated    timestamp default CURRENT_TIMESTAMP
 );
+
+create table transaction_fees
+(
+    id           bigint          not null AUTO_INCREMENT primary key,
+    currency     varchar         not null,
+    amount       decimal(18, 10) not null,
+    last_updated timestamp default CURRENT_TIMESTAMP
+)

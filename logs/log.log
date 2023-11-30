@@ -1068,3 +1068,929 @@ create unique index accounts_currency_code_account_type_index
 30-11-2023 16:38:49.994 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 2 ms
 30-11-2023 16:38:50.154 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
 30-11-2023 16:38:50.310 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.id=? and a1_0.user_id=?
+30-11-2023 17:09:57.924 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 89502 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 17:09:57.927 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 17:09:58.773 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 17:09:58.869 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 71 ms. Found 4 JPA repository interfaces.
+30-11-2023 17:09:59.473 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 17:09:59.487 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 17:09:59.488 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 17:09:59.587 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 17:09:59.588 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1601 ms
+30-11-2023 17:09:59.616 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 17:09:59.915 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 17:09:59.917 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 17:09:59.930 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 17:10:00.139 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 17:10:00.355 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.358 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.364 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.367 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.372 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.373 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 17:10:00.384 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 17:10:00.388 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.388 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 17:10:00.390 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.391 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.448 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:10:00.448 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 25ms
+30-11-2023 17:10:00.452 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.454 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.457 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:10:00.457 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:10:00.460 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.464 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:10:00.465 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 17:10:00.466 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.469 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:10:00.470 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:10:00.471 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.474 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:10:00.475 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:10:00.476 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.479 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:10:00.480 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 2ms
+30-11-2023 17:10:00.481 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.481 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 17:10:00.483 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:10:00.483 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 17:10:00.559 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 17:10:00.643 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 17:10:00.646 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 17:10:01.026 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 17:10:01.081 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 17:10:02.152 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 17:10:02.190 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:10:02.576 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.refresh - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accountController' defined in file [/Users/allencooper/IdeaProjects/CryptoService/target/classes/com/example/cryptoservice/controller/AccountController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'accountServiceImpl' defined in file [/Users/allencooper/IdeaProjects/CryptoService/target/classes/com/example/cryptoservice/service/AccountServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'accountRepository' defined in com.example.cryptoservice.repository.AccountRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_Deposit(); Reason: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_Deposit(); No property 'deposit' found for type 'AccountType'; Traversed path: Account.accountType
+30-11-2023 17:10:02.577 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:10:02.579 [main] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 17:10:02.580 [main] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+30-11-2023 17:10:02.581 [main] INFO  o.a.catalina.core.StandardService.log - Stopping service [Tomcat]
+30-11-2023 17:10:02.591 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger.logMessage - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+30-11-2023 17:10:02.619 [main] ERROR o.s.boot.SpringApplication.reportFailure - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accountController' defined in file [/Users/allencooper/IdeaProjects/CryptoService/target/classes/com/example/cryptoservice/controller/AccountController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'accountServiceImpl' defined in file [/Users/allencooper/IdeaProjects/CryptoService/target/classes/com/example/cryptoservice/service/AccountServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'accountRepository' defined in com.example.cryptoservice.repository.AccountRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_Deposit(); Reason: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_Deposit(); No property 'deposit' found for type 'AccountType'; Traversed path: Account.accountType
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:973)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:950)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:738)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:440)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.example.cryptoservice.CryptoServiceApplication.main(CryptoServiceApplication.java:10)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accountServiceImpl' defined in file [/Users/allencooper/IdeaProjects/CryptoService/target/classes/com/example/cryptoservice/service/AccountServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'accountRepository' defined in com.example.cryptoservice.repository.AccountRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_Deposit(); Reason: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_Deposit(); No property 'deposit' found for type 'AccountType'; Traversed path: Account.accountType
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1417)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:910)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'accountRepository' defined in com.example.cryptoservice.repository.AccountRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_Deposit(); Reason: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_Deposit(); No property 'deposit' found for type 'AccountType'; Traversed path: Account.accountType
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1417)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:910)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 33 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_Deposit(); Reason: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_Deposit(); No property 'deposit' found for type 'AccountType'; Traversed path: Account.accountType
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:115)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:99)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:88)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:88)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:357)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:279)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:245)
+	at org.springframework.data.util.Lazy.get(Lazy.java:114)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:285)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	... 44 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_Deposit(); No property 'deposit' found for type 'AccountType'; Traversed path: Account.accountType
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:107)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:124)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:258)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:95)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:111)
+	... 56 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'deposit' found for type 'AccountType'; Traversed path: Account.accountType
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:90)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:405)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:381)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:365)
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:337)
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:316)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:299)
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:242)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:243)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:372)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:373)
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:96)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:100)
+	... 60 common frames omitted
+30-11-2023 17:13:54.284 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 89532 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 17:13:54.288 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 17:13:55.242 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 17:13:55.335 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 79 ms. Found 4 JPA repository interfaces.
+30-11-2023 17:13:55.974 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 17:13:55.986 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 17:13:55.986 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 17:13:56.080 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 17:13:56.081 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1740 ms
+30-11-2023 17:13:56.121 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 17:13:56.488 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 17:13:56.491 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 17:13:56.518 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 17:13:56.733 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 17:13:56.948 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:56.950 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:56.954 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:56.957 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:56.961 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:56.961 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 17:13:56.972 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 17:13:56.976 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:56.977 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 17:13:56.978 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:56.979 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:57.059 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:13:57.060 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 27ms
+30-11-2023 17:13:57.064 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:57.066 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:57.069 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:13:57.070 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:13:57.072 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:57.079 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:13:57.080 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 7ms
+30-11-2023 17:13:57.082 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:57.087 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:13:57.089 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 5ms
+30-11-2023 17:13:57.090 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:57.093 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:13:57.093 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:13:57.094 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:57.098 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:13:57.099 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 17:13:57.101 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:57.101 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 17:13:57.103 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:13:57.103 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 17:13:57.200 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 17:13:57.271 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 17:13:57.281 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 17:13:58.062 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 17:13:58.115 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 17:13:59.287 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 17:13:59.324 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:13:59.706 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.refresh - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accountController' defined in file [/Users/allencooper/IdeaProjects/CryptoService/target/classes/com/example/cryptoservice/controller/AccountController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'accountServiceImpl' defined in file [/Users/allencooper/IdeaProjects/CryptoService/target/classes/com/example/cryptoservice/service/AccountServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'accountRepository' defined in com.example.cryptoservice.repository.AccountRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT(); Reason: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT(); Method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT() expects at least 1 arguments but only found 0; This leaves an operator of type SIMPLE_PROPERTY for property accountType.DEPOSIT unbound
+30-11-2023 17:13:59.707 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:13:59.709 [main] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 17:13:59.711 [main] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+30-11-2023 17:13:59.712 [main] INFO  o.a.catalina.core.StandardService.log - Stopping service [Tomcat]
+30-11-2023 17:13:59.721 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger.logMessage - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+30-11-2023 17:13:59.748 [main] ERROR o.s.boot.SpringApplication.reportFailure - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accountController' defined in file [/Users/allencooper/IdeaProjects/CryptoService/target/classes/com/example/cryptoservice/controller/AccountController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'accountServiceImpl' defined in file [/Users/allencooper/IdeaProjects/CryptoService/target/classes/com/example/cryptoservice/service/AccountServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'accountRepository' defined in com.example.cryptoservice.repository.AccountRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT(); Reason: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT(); Method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT() expects at least 1 arguments but only found 0; This leaves an operator of type SIMPLE_PROPERTY for property accountType.DEPOSIT unbound
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:973)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:950)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:738)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:440)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.example.cryptoservice.CryptoServiceApplication.main(CryptoServiceApplication.java:10)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accountServiceImpl' defined in file [/Users/allencooper/IdeaProjects/CryptoService/target/classes/com/example/cryptoservice/service/AccountServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'accountRepository' defined in com.example.cryptoservice.repository.AccountRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT(); Reason: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT(); Method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT() expects at least 1 arguments but only found 0; This leaves an operator of type SIMPLE_PROPERTY for property accountType.DEPOSIT unbound
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1417)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:910)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'accountRepository' defined in com.example.cryptoservice.repository.AccountRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT(); Reason: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT(); Method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT() expects at least 1 arguments but only found 0; This leaves an operator of type SIMPLE_PROPERTY for property accountType.DEPOSIT unbound
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1417)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:910)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 33 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT(); Reason: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT(); Method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT() expects at least 1 arguments but only found 0; This leaves an operator of type SIMPLE_PROPERTY for property accountType.DEPOSIT unbound
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:115)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:99)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:88)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:88)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:357)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:279)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:245)
+	at org.springframework.data.util.Lazy.get(Lazy.java:114)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:285)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	... 44 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT(); Method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT() expects at least 1 arguments but only found 0; This leaves an operator of type SIMPLE_PROPERTY for property accountType.DEPOSIT unbound
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:107)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:124)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:258)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:95)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:111)
+	... 56 common frames omitted
+Caused by: java.lang.IllegalStateException: Method public abstract java.util.List com.example.cryptoservice.repository.AccountRepository.findByAccountType_DEPOSIT() expects at least 1 arguments but only found 0; This leaves an operator of type SIMPLE_PROPERTY for property accountType.DEPOSIT unbound
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.throwExceptionOnArgumentMismatch(PartTreeJpaQuery.java:162)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.validate(PartTreeJpaQuery.java:148)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:101)
+	... 60 common frames omitted
+30-11-2023 17:18:13.578 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 89567 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 17:18:13.581 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 17:18:14.373 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 17:18:14.465 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 76 ms. Found 4 JPA repository interfaces.
+30-11-2023 17:18:15.048 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 17:18:15.057 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 17:18:15.057 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 17:18:15.125 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 17:18:15.125 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1503 ms
+30-11-2023 17:18:15.149 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 17:18:15.491 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 17:18:15.492 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 17:18:15.503 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 17:18:15.717 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 17:18:15.951 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:15.954 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:15.958 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:15.961 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:15.966 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:15.967 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 17:18:15.977 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 17:18:15.981 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:15.982 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 17:18:15.984 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:15.985 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:16.044 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:18:16.045 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 26ms
+30-11-2023 17:18:16.049 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:16.051 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:16.055 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:18:16.055 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:18:16.057 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:16.061 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:18:16.063 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 17:18:16.064 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:16.068 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:18:16.069 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:18:16.070 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:16.073 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:18:16.074 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 2ms
+30-11-2023 17:18:16.075 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:16.078 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:18:16.078 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 2ms
+30-11-2023 17:18:16.079 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:16.080 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 17:18:16.082 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:18:16.083 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 17:18:16.175 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 17:18:16.251 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 17:18:16.254 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 17:18:16.651 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 17:18:16.709 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 17:18:17.806 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 17:18:17.841 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:18:18.347 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-11-2023 17:18:18.680 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+30-11-2023 17:18:18.691 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 5.729 seconds (process running for 6.569)
+30-11-2023 17:18:59.539 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+30-11-2023 17:18:59.541 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+30-11-2023 17:18:59.542 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 1 ms
+30-11-2023 17:18:59.840 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+30-11-2023 17:18:59.888 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:18:59.899 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:19:30.565 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+30-11-2023 17:19:30.570 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:19:30.572 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:20:38.186 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:20:38.221 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.id=? and a1_0.user_id=?
+30-11-2023 17:20:44.372 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:20:44.378 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 17:20:44.380 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+30-11-2023 17:26:16.995 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 89664 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 17:26:17.000 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 17:26:17.794 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 17:26:17.874 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 66 ms. Found 4 JPA repository interfaces.
+30-11-2023 17:26:18.469 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 17:26:18.483 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 17:26:18.483 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 17:26:18.578 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 17:26:18.578 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1510 ms
+30-11-2023 17:26:18.601 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 17:26:18.944 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 17:26:18.946 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 17:26:18.956 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 17:26:19.148 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 17:26:19.401 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.403 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.407 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.410 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.415 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.415 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 17:26:19.426 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 17:26:19.430 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.431 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 17:26:19.433 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.434 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.491 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:26:19.492 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 26ms
+30-11-2023 17:26:19.496 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.498 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.503 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:26:19.504 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 5ms
+30-11-2023 17:26:19.506 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.511 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:26:19.513 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 5ms
+30-11-2023 17:26:19.514 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.519 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:26:19.520 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 5ms
+30-11-2023 17:26:19.522 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.526 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:26:19.527 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 17:26:19.529 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.533 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:26:19.533 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:26:19.535 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.536 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 17:26:19.538 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:26:19.538 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 17:26:19.613 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 17:26:19.679 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 17:26:19.682 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 17:26:20.064 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 17:26:20.119 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 17:26:21.258 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 17:26:21.294 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:26:21.876 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-11-2023 17:26:22.194 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+30-11-2023 17:26:22.201 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 5.816 seconds (process running for 6.475)
+30-11-2023 17:26:35.067 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+30-11-2023 17:26:35.068 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+30-11-2023 17:26:35.070 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 1 ms
+30-11-2023 17:26:35.274 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+30-11-2023 17:26:35.288 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:26:35.297 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:28:59.638 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:28:59.668 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 17:28:59.674 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+30-11-2023 17:29:04.197 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 89695 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 17:29:04.199 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 17:29:05.108 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 17:29:05.187 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 66 ms. Found 4 JPA repository interfaces.
+30-11-2023 17:29:05.807 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 17:29:05.821 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 17:29:05.821 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 17:29:05.913 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 17:29:05.914 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1641 ms
+30-11-2023 17:29:05.940 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 17:29:06.199 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 17:29:06.200 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 17:29:06.211 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 17:29:06.438 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 17:29:06.654 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.657 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.660 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.664 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.669 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.670 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 17:29:06.681 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 17:29:06.685 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.686 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 17:29:06.688 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.689 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.748 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:29:06.749 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 26ms
+30-11-2023 17:29:06.753 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.755 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.758 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:29:06.759 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 2ms
+30-11-2023 17:29:06.761 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.765 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:29:06.766 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 5ms
+30-11-2023 17:29:06.768 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.772 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:29:06.773 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:29:06.774 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.778 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:29:06.779 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:29:06.780 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.783 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:29:06.784 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:29:06.785 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.786 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 17:29:06.788 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:29:06.789 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 17:29:06.868 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 17:29:06.949 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 17:29:06.952 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 17:29:07.340 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 17:29:07.393 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 17:29:08.449 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 17:29:08.482 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:29:09.158 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-11-2023 17:29:09.522 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+30-11-2023 17:29:09.529 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 5.944 seconds (process running for 6.816)
+30-11-2023 17:30:10.393 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:30:10.412 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 17:30:10.416 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+30-11-2023 17:30:15.009 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 89708 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 17:30:15.017 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 17:30:15.891 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 17:30:15.981 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 80 ms. Found 4 JPA repository interfaces.
+30-11-2023 17:30:16.547 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 17:30:16.558 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 17:30:16.559 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 17:30:16.644 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 17:30:16.644 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1508 ms
+30-11-2023 17:30:16.684 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 17:30:17.089 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 17:30:17.091 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 17:30:17.111 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 17:30:17.332 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 17:30:17.560 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.563 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.566 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.569 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.573 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.574 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 17:30:17.585 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 17:30:17.589 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.590 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 17:30:17.592 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.593 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.651 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:30:17.652 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 25ms
+30-11-2023 17:30:17.656 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.658 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.661 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:30:17.662 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:30:17.663 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.667 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:30:17.668 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 17:30:17.669 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.673 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:30:17.673 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:30:17.675 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.678 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:30:17.679 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 17:30:17.680 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.683 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:30:17.684 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 2ms
+30-11-2023 17:30:17.685 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.686 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 17:30:17.687 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:30:17.688 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 17:30:17.770 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 17:30:17.854 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 17:30:17.857 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 17:30:18.294 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 17:30:18.351 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 17:30:19.380 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 17:30:19.421 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:30:19.948 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-11-2023 17:30:20.294 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+30-11-2023 17:30:20.301 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 5.837 seconds (process running for 6.461)
+30-11-2023 17:32:45.803 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+30-11-2023 17:32:45.808 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+30-11-2023 17:32:45.820 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 12 ms
+30-11-2023 17:33:23.512 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:33:23.668 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.id=? and a1_0.user_id=?
+30-11-2023 17:33:23.677 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+30-11-2023 17:33:23.684 [http-nio-8080-exec-3] ERROR c.e.c.e.ExceptionResolver.notEqualCurrencyException - Account with id: 1 has a different currency code compared to4
+30-11-2023 17:33:56.890 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:33:56.895 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.id=? and a1_0.user_id=?
+30-11-2023 17:33:56.898 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+30-11-2023 17:33:56.908 [http-nio-8080-exec-5] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet].log - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.UnsupportedOperationException: Account with id: 2 is deposit account.] with root cause
+java.lang.UnsupportedOperationException: Account with id: 2 is deposit account.
+	at com.example.cryptoservice.service.TransactionValidationService.validateTransfer(TransactionValidationService.java:20)
+	at com.example.cryptoservice.service.TransactionServiceImpl.transfer(TransactionServiceImpl.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
+	at com.example.cryptoservice.service.TransactionServiceImpl$$SpringCGLIB$$0.transfer(<generated>)
+	at com.example.cryptoservice.controller.TransactionController.transfer(TransactionController.java:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+30-11-2023 17:35:01.207 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:35:01.241 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.id=? and a1_0.user_id=?
+30-11-2023 17:35:01.245 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+30-11-2023 17:35:01.375 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL.logStatement - insert into transactions (account_id,amount,created,transaction_type,id) values (?,?,?,?,default)
+30-11-2023 17:35:01.425 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL.logStatement - insert into transactions (account_id,amount,created,transaction_type,id) values (?,?,?,?,default)
+30-11-2023 17:35:01.456 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+30-11-2023 17:36:50.569 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:36:50.612 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 17:36:50.629 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+30-11-2023 17:36:55.484 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 89773 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 17:36:55.491 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 17:36:56.692 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 17:36:56.775 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 71 ms. Found 4 JPA repository interfaces.
+30-11-2023 17:36:57.402 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 17:36:57.418 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 17:36:57.418 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 17:36:57.510 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 17:36:57.510 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1916 ms
+30-11-2023 17:36:57.543 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 17:36:57.847 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 17:36:57.848 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 17:36:57.859 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 17:36:58.059 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 17:36:58.291 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.294 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.298 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.301 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.305 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.305 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 17:36:58.316 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 17:36:58.319 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.320 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 17:36:58.322 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.323 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.381 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:36:58.382 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 26ms
+30-11-2023 17:36:58.386 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.387 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.390 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:36:58.391 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 2ms
+30-11-2023 17:36:58.392 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.397 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:36:58.398 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 17:36:58.399 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.403 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:36:58.403 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:36:58.404 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.407 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:36:58.408 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:36:58.409 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.412 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:36:58.413 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:36:58.414 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.415 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 17:36:58.416 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:36:58.417 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 17:36:58.495 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 17:36:58.559 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 17:36:58.564 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 17:36:58.970 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 17:36:59.023 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 17:37:00.121 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 17:37:00.161 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:37:00.762 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-11-2023 17:37:01.140 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+30-11-2023 17:37:01.149 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 6.274 seconds (process running for 6.971)
+30-11-2023 17:37:38.640 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+30-11-2023 17:37:38.641 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+30-11-2023 17:37:38.642 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 1 ms
+30-11-2023 17:37:38.912 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:37:39.049 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.id=? and a1_0.user_id=?
+30-11-2023 17:37:39.058 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+30-11-2023 17:37:39.078 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - insert into transactions (account_id,amount,created,transaction_type,id) values (?,?,?,?,default)
+30-11-2023 17:37:39.086 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - insert into transactions (account_id,amount,created,transaction_type,id) values (?,?,?,?,default)
+30-11-2023 17:37:39.097 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+30-11-2023 17:37:39.100 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+30-11-2023 17:38:01.020 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+30-11-2023 17:38:01.022 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:38:01.024 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:40:52.875 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:40:52.912 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 17:40:52.917 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+30-11-2023 17:40:57.316 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 89807 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 17:40:57.319 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 17:40:57.987 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 17:40:58.062 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 63 ms. Found 4 JPA repository interfaces.
+30-11-2023 17:40:58.640 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 17:40:58.652 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 17:40:58.652 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 17:40:58.727 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 17:40:58.728 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1368 ms
+30-11-2023 17:40:58.771 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 17:40:59.016 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 17:40:59.019 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 17:40:59.030 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 17:40:59.256 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 17:40:59.446 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.449 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.454 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.459 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.464 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.465 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 17:40:59.477 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 17:40:59.484 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.485 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 17:40:59.488 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.489 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.552 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:40:59.553 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 27ms
+30-11-2023 17:40:59.556 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.558 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.562 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:40:59.563 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 17:40:59.564 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.568 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:40:59.569 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 5ms
+30-11-2023 17:40:59.570 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.573 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:40:59.574 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:40:59.575 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.578 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:40:59.579 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 17:40:59.580 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.583 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 17:40:59.584 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 2ms
+30-11-2023 17:40:59.586 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.587 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 17:40:59.588 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 17:40:59.589 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 17:40:59.666 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 17:40:59.732 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 17:40:59.736 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 17:41:00.057 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 17:41:00.108 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 17:41:01.103 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 17:41:01.135 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 17:41:01.617 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-11-2023 17:41:01.949 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+30-11-2023 17:41:01.957 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 5.25 seconds (process running for 6.005)
+30-11-2023 17:41:08.852 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+30-11-2023 17:41:08.853 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+30-11-2023 17:41:08.855 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 1 ms
+30-11-2023 17:41:09.049 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+30-11-2023 17:41:09.065 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:41:09.079 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 17:41:09.138 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+30-11-2023 17:41:09.145 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+30-11-2023 19:33:29.132 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 90840 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 19:33:29.138 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 19:33:30.165 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 19:33:30.253 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 76 ms. Found 5 JPA repository interfaces.
+30-11-2023 19:33:31.292 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 19:33:31.316 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 19:33:31.317 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 19:33:31.451 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 19:33:31.452 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2238 ms
+30-11-2023 19:33:31.481 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 19:33:31.846 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 19:33:31.849 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 19:33:31.864 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 19:33:32.110 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 19:33:32.410 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.413 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.417 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.420 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.425 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.426 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 19:33:32.441 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 19:33:32.445 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.446 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 19:33:32.448 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.449 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.546 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:33:32.547 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 32ms
+30-11-2023 19:33:32.553 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.554 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.558 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:33:32.559 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 19:33:32.560 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.566 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:33:32.567 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 5ms
+30-11-2023 19:33:32.568 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.572 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:33:32.573 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 19:33:32.574 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.577 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:33:32.578 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 19:33:32.579 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.583 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:33:32.584 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 19:33:32.586 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.586 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 19:33:32.588 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:33:32.588 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 19:33:32.677 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 19:33:32.796 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 19:33:32.800 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 19:33:33.314 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 19:33:33.404 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 19:33:34.816 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 19:33:34.856 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 19:33:35.472 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-11-2023 19:33:35.832 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+30-11-2023 19:33:35.840 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 7.261 seconds (process running for 8.565)
+30-11-2023 19:33:52.331 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+30-11-2023 19:33:52.332 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+30-11-2023 19:33:52.336 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 4 ms
+30-11-2023 19:33:53.034 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+30-11-2023 19:33:53.202 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.id=? and a1_0.user_id=?
+30-11-2023 19:33:53.210 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+30-11-2023 19:33:53.233 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - insert into transaction_fees (amount,currency,last_updated,id) values (?,?,?,default)
+30-11-2023 19:33:53.244 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - insert into transactions (account_id,amount,created,transaction_type,id) values (?,?,?,?,default)
+30-11-2023 19:33:53.246 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - insert into transactions (account_id,amount,created,transaction_type,id) values (?,?,?,?,default)
+30-11-2023 19:33:53.259 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+30-11-2023 19:33:53.263 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+30-11-2023 19:35:10.812 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 19:35:10.822 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 19:35:10.827 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+30-11-2023 19:35:15.650 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 90913 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 19:35:15.653 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 19:35:16.362 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 19:35:16.439 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+30-11-2023 19:35:17.031 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 19:35:17.045 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 19:35:17.045 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 19:35:17.117 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 19:35:17.118 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1412 ms
+30-11-2023 19:35:17.140 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 19:35:17.399 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 19:35:17.401 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 19:35:17.416 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 19:35:17.659 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 19:35:17.896 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:17.899 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:17.903 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:17.906 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:17.910 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:17.911 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 19:35:17.921 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 19:35:17.925 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:17.926 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 19:35:17.928 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:17.929 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:17.991 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:35:17.992 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 29ms
+30-11-2023 19:35:17.996 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:17.998 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:18.001 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:35:18.002 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 2ms
+30-11-2023 19:35:18.003 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:18.007 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:35:18.008 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 19:35:18.009 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:18.012 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:35:18.013 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 19:35:18.015 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:18.019 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:35:18.019 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 19:35:18.020 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:18.024 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 19:35:18.025 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 19:35:18.026 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:18.027 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 19:35:18.029 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 19:35:18.029 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 19:35:18.117 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 19:35:18.210 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 19:35:18.213 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 19:35:18.648 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 19:35:18.702 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 19:35:19.866 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 19:35:19.906 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 19:35:20.500 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-11-2023 19:35:20.982 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+30-11-2023 19:35:20.991 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 5.904 seconds (process running for 6.828)
+30-11-2023 19:35:23.282 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 19:35:23.285 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 19:35:23.288 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.

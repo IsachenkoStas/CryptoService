@@ -25,47 +25,47 @@ import java.util.List;
 public class TransactionController {
 
     private final ModelMapper modelMapper;
-    private final TransactionService service;
+    private final TransactionService transactionService;
 
     @GetMapping("/users/{userId}/{transactionId}")
     public ResponseEntity<TransactionDetailsDto> getTransactionDetailsByUserId(@PathVariable Long userId, @PathVariable Long transactionId) {
         return new ResponseEntity<>(modelMapper
-                .map(service.getTransactionDetails(userId, transactionId), TransactionDetailsDto.class), HttpStatus.OK);
+                .map(transactionService.getTransactionDetails(userId, transactionId), TransactionDetailsDto.class), HttpStatus.OK);
     }
 
     @GetMapping("/users/{id}")
     public ResponseEntity<List<TransactionDetailsDto>> getTransactionsById(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(service.getTransactionsByUserId(id).stream()
+        return new ResponseEntity<>(transactionService.getTransactionsByUserId(id).stream()
                 .map(acc -> modelMapper.map(acc, TransactionDetailsDto.class)).toList(), HttpStatus.OK);
     }
 
     @PostMapping("/transfer")
     public ResponseEntity<Void> transfer(@RequestBody @Valid TransferDto transferDto) {
-        service.transfer(transferDto);
+        transactionService.transfer(transferDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PostMapping("/deposit")
     public ResponseEntity<Void> deposit(@RequestBody @Valid DepositDto depositDto) {
-        service.deposit(depositDto);
+        transactionService.deposit(depositDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PostMapping("/withdraw")
     public ResponseEntity<Void> withdraw(@RequestBody @Valid TransferDto withdrawDto) {
-        service.withdraw(withdrawDto);
+        transactionService.withdraw(withdrawDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PostMapping("/swap")
     public ResponseEntity<Void> swap(@RequestBody @Valid TransferDto swapDto) {
-        service.swap(swapDto);
+        transactionService.swap(swapDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/my-rewards/{userId}/{accId}")
     private ResponseEntity<AccountDto> checkMyRewards(@PathVariable Long userId, @PathVariable Long accId) {
         return new ResponseEntity<>(modelMapper
-                .map(service.checkMyRewards(userId, accId), AccountDto.class), HttpStatus.OK);
+                .map(transactionService.checkMyRewards(userId, accId), AccountDto.class), HttpStatus.OK);
     }
 }

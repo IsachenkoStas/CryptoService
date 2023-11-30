@@ -12,3 +12,6 @@ values (3, 3, 'BTC', 'SAVING');
 
 insert into accounts (user_id, balance, currency_code, account_type)
 values (2, 5, 'BTC', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 100, 'ETH', 'DEPOSIT');

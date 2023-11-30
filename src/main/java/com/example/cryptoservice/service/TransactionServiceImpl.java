@@ -5,14 +5,17 @@ import com.example.cryptoservice.domain.AccountType;
 import com.example.cryptoservice.domain.CryptoRate;
 import com.example.cryptoservice.domain.CryptoUser;
 import com.example.cryptoservice.domain.Transaction;
+import com.example.cryptoservice.domain.TransactionFee;
 import com.example.cryptoservice.domain.TransactionType;
 import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
 import com.example.cryptoservice.exception_resolver.NotDepositAccountException;
 import com.example.cryptoservice.exception_resolver.TransactionNotFoundException;
 import com.example.cryptoservice.repository.AccountRepository;
+import com.example.cryptoservice.repository.TransactionFeeRepository;
 import com.example.cryptoservice.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
+import org.h2.value.Transfer;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +34,7 @@ public class TransactionServiceImpl implements TransactionService {
     private final AccountRepository accountRepository;
     private final CryptoRateService cryptoRateService;
     private final TransactionValidationService transactionValidation;
+    private final FeeService feeService;
 
     @Override
     public Transaction getTransactionDetails(Long userId, Long transactionId) {
@@ -50,7 +54,12 @@ public class TransactionServiceImpl implements TransactionService {
     public void transfer(TransferDto transfer) {
         Account accountFrom = accountService.getAccountDetails(transfer.getUserId(), transfer.getAccIdFrom());
         Account accountTo = accountService.getById(transfer.getAccIdTo());
+
         transactionValidation.validateTransfer(transfer, accountFrom, accountTo);
+
+        BigDecimal feeAmount = feeService.fee(transfer, accountFrom);
+
+        accountFrom.setBalance(accountFrom.getBalance().subtract(transfer.getAmount().add(feeAmount)));
         accountTo.setBalance(accountTo.getBalance().add(transfer.getAmount()));
 
         Transaction transactionAccFrom = Transaction.builder()
@@ -122,7 +131,9 @@ public class TransactionServiceImpl implements TransactionService {
         CryptoRate targetRate = cryptoRateService.getCurrencyRate(accFrom.getCurrencyCode().toString(), accTo.getCurrencyCode().toString());
         BigDecimal rate = targetRate.getRate();
 
-        accFrom.setBalance(accFrom.getBalance().subtract(swap.getAmount()));
+        BigDecimal feeAmount = feeService.fee(swap, accFrom);
+
+        accFrom.setBalance(accFrom.getBalance().subtract(swap.getAmount().add(feeAmount)));
         Transaction transactionAccFrom = Transaction.builder()
                 .amount(swap.getAmount())
                 .transactionType(TransactionType.SWAP)
