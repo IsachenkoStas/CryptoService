@@ -178,3 +178,590 @@
 30-11-2023 11:39:51.383 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
 30-11-2023 11:39:51.385 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 2 ms
 30-11-2023 11:39:51.577 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.base_currency,c1_0.last_updated,c1_0.rate,c1_0.target_currency from crypto_rates c1_0
+30-11-2023 12:32:46.439 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 85322 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 12:32:46.446 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 12:32:47.331 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 12:32:47.426 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 80 ms. Found 4 JPA repository interfaces.
+30-11-2023 12:32:48.073 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 12:32:48.088 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 12:32:48.089 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 12:32:48.200 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 12:32:48.200 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1684 ms
+30-11-2023 12:32:48.226 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 12:32:48.564 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 12:32:48.567 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 12:32:48.578 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 12:32:48.818 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 12:32:49.101 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.104 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.108 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.112 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.117 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.118 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 12:32:49.134 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 12:32:49.137 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.138 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 12:32:49.140 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.142 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.244 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:32:49.245 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 32ms
+30-11-2023 12:32:49.249 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.250 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.254 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:32:49.255 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 12:32:49.257 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.263 [main] ERROR liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll encountered an exception.
+30-11-2023 12:32:49.264 [main] INFO  liquibase.log - Update command encountered an exception.
+30-11-2023 12:32:49.266 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:32:49.266 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 12:32:49.267 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.refresh - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/changeset/add-accounts.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 500, 'USDT', 'SAVING') [23505-214] [Failed SQL: (23505) insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 500, 'USDT', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (3, 1000, 'USDT', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 1000, 'ETH', 'CHECKING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (3, 3, 'BTC', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 5, 'BTC', 'SAVING');
+
+create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type);]
+30-11-2023 12:32:49.267 [main] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 12:32:49.269 [main] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+30-11-2023 12:32:49.272 [main] INFO  o.a.catalina.core.StandardService.log - Stopping service [Tomcat]
+30-11-2023 12:32:49.282 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger.logMessage - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+30-11-2023 12:32:49.310 [main] ERROR o.s.boot.SpringApplication.reportFailure - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/changeset/add-accounts.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 500, 'USDT', 'SAVING') [23505-214] [Failed SQL: (23505) insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 500, 'USDT', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (3, 1000, 'USDT', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 1000, 'ETH', 'CHECKING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (3, 3, 'BTC', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 5, 'BTC', 'SAVING');
+
+create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type);]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1166)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:940)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:738)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:440)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.example.cryptoservice.CryptoServiceApplication.main(CryptoServiceApplication.java:10)
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/changeset/add-accounts.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 500, 'USDT', 'SAVING') [23505-214] [Failed SQL: (23505) insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 500, 'USDT', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (3, 1000, 'USDT', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 1000, 'ETH', 'CHECKING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (3, 3, 'BTC', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 5, 'BTC', 'SAVING');
+
+create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type);]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:136)
+	at liquibase.Liquibase.lambda$null$0(Liquibase.java:297)
+	at liquibase.Scope.lambda$child$0(Scope.java:187)
+	at liquibase.Scope.child(Scope.java:196)
+	at liquibase.Scope.child(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:165)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.Liquibase.lambda$update$1(Liquibase.java:295)
+	at liquibase.Scope.lambda$child$0(Scope.java:187)
+	at liquibase.Scope.child(Scope.java:196)
+	at liquibase.Scope.child(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:165)
+	at liquibase.Liquibase.runInScope(Liquibase.java:2639)
+	at liquibase.Liquibase.update(Liquibase.java:236)
+	at liquibase.Liquibase.update(Liquibase.java:221)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:329)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:284)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	... 18 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/changeset/add-accounts.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 500, 'USDT', 'SAVING') [23505-214] [Failed SQL: (23505) insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 500, 'USDT', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (3, 1000, 'USDT', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 1000, 'ETH', 'CHECKING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (3, 3, 'BTC', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 5, 'BTC', 'SAVING');
+
+create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type);]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:744)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:59)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$null$0(ChangeLogIterator.java:124)
+	at liquibase.Scope.lambda$child$0(Scope.java:187)
+	at liquibase.Scope.child(Scope.java:196)
+	at liquibase.Scope.child(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:165)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$1(ChangeLogIterator.java:124)
+	at liquibase.Scope.lambda$child$0(Scope.java:187)
+	at liquibase.Scope.child(Scope.java:196)
+	at liquibase.Scope.child(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:165)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:105)
+	at liquibase.Scope.lambda$child$0(Scope.java:187)
+	at liquibase.Scope.child(Scope.java:196)
+	at liquibase.Scope.child(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:165)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.Scope.child(Scope.java:260)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:75)
+	... 36 common frames omitted
+Caused by: liquibase.exception.DatabaseException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 500, 'USDT', 'SAVING') [23505-214] [Failed SQL: (23505) insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 500, 'USDT', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (3, 1000, 'USDT', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 1000, 'ETH', 'CHECKING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (3, 3, 'BTC', 'SAVING');
+
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 5, 'BTC', 'SAVING');
+
+create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type);]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:445)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:160)
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1270)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1252)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:702)
+	... 56 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+insert into accounts (user_id, balance, currency_code, account_type)
+values (2, 500, 'USDT', 'SAVING') [23505-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:508)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.index.Index.getDuplicateKeyException(Index.java:525)
+	at org.h2.mvstore.db.MVSecondaryIndex.checkUnique(MVSecondaryIndex.java:223)
+	at org.h2.mvstore.db.MVSecondaryIndex.add(MVSecondaryIndex.java:184)
+	at org.h2.mvstore.db.MVTable.addRowsToIndex(MVTable.java:709)
+	at org.h2.mvstore.db.MVTable.rebuildIndexBuffered(MVTable.java:467)
+	at org.h2.mvstore.db.MVTable.rebuildIndex(MVTable.java:387)
+	at org.h2.mvstore.db.MVTable.addIndex(MVTable.java:367)
+	at org.h2.command.ddl.CreateIndex.update(CreateIndex.java:103)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:49)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:441)
+	... 61 common frames omitted
+30-11-2023 12:36:04.971 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 85388 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 12:36:04.974 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 12:36:06.426 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 12:36:06.514 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 71 ms. Found 4 JPA repository interfaces.
+30-11-2023 12:36:07.144 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 12:36:07.159 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 12:36:07.159 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 12:36:07.246 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 12:36:07.248 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2201 ms
+30-11-2023 12:36:07.274 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 12:36:07.620 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 12:36:07.622 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 12:36:07.635 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 12:36:07.859 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 12:36:08.099 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.102 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.106 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.109 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.114 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.115 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 12:36:08.127 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 12:36:08.131 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.132 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 12:36:08.134 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.135 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.199 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:36:08.200 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 31ms
+30-11-2023 12:36:08.204 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.206 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.209 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:36:08.211 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 5ms
+30-11-2023 12:36:08.213 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.217 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:36:08.218 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 12:36:08.220 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.225 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:36:08.227 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 5ms
+30-11-2023 12:36:08.229 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.239 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:36:08.241 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 7ms
+30-11-2023 12:36:08.244 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.250 [main] ERROR liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll encountered an exception.
+30-11-2023 12:36:08.251 [main] INFO  liquibase.log - Update command encountered an exception.
+30-11-2023 12:36:08.254 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:08.255 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 12:36:08.257 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.refresh - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/changeset/add-unique-index.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type) [23505-214] [Failed SQL: (23505) create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type);]
+30-11-2023 12:36:08.258 [main] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 12:36:08.261 [main] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+30-11-2023 12:36:08.267 [main] INFO  o.a.catalina.core.StandardService.log - Stopping service [Tomcat]
+30-11-2023 12:36:08.285 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger.logMessage - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+30-11-2023 12:36:08.309 [main] ERROR o.s.boot.SpringApplication.reportFailure - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/changeset/add-unique-index.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type) [23505-214] [Failed SQL: (23505) create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type);]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1166)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:940)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:738)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:440)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.example.cryptoservice.CryptoServiceApplication.main(CryptoServiceApplication.java:10)
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/changeset/add-unique-index.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type) [23505-214] [Failed SQL: (23505) create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type);]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:136)
+	at liquibase.Liquibase.lambda$null$0(Liquibase.java:297)
+	at liquibase.Scope.lambda$child$0(Scope.java:187)
+	at liquibase.Scope.child(Scope.java:196)
+	at liquibase.Scope.child(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:165)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.Liquibase.lambda$update$1(Liquibase.java:295)
+	at liquibase.Scope.lambda$child$0(Scope.java:187)
+	at liquibase.Scope.child(Scope.java:196)
+	at liquibase.Scope.child(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:165)
+	at liquibase.Liquibase.runInScope(Liquibase.java:2639)
+	at liquibase.Liquibase.update(Liquibase.java:236)
+	at liquibase.Liquibase.update(Liquibase.java:221)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:329)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:284)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	... 18 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/changeset/add-unique-index.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type) [23505-214] [Failed SQL: (23505) create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type);]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:744)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:59)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$null$0(ChangeLogIterator.java:124)
+	at liquibase.Scope.lambda$child$0(Scope.java:187)
+	at liquibase.Scope.child(Scope.java:196)
+	at liquibase.Scope.child(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:165)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$1(ChangeLogIterator.java:124)
+	at liquibase.Scope.lambda$child$0(Scope.java:187)
+	at liquibase.Scope.child(Scope.java:196)
+	at liquibase.Scope.child(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:165)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:105)
+	at liquibase.Scope.lambda$child$0(Scope.java:187)
+	at liquibase.Scope.child(Scope.java:196)
+	at liquibase.Scope.child(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:165)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.Scope.child(Scope.java:260)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:75)
+	... 36 common frames omitted
+Caused by: liquibase.exception.DatabaseException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type) [23505-214] [Failed SQL: (23505) create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type);]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:445)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:160)
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1270)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1252)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:702)
+	... 56 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Нарушение уникального индекса или первичного ключа: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"
+Unique index or primary key violation: "PUBLIC.ACCOUNTS_CURRENCY_CODE_ACCOUNT_TYPE_INDEX ON PUBLIC.ACCOUNTS(CURRENCY_CODE NULLS FIRST, ACCOUNT_TYPE NULLS FIRST) VALUES ( /* key:4 */ 'BTC', 'SAVING')"; SQL statement:
+create unique index accounts_currency_code_account_type_index
+    on accounts (currency_code, account_type) [23505-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:508)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.index.Index.getDuplicateKeyException(Index.java:525)
+	at org.h2.mvstore.db.MVSecondaryIndex.checkUnique(MVSecondaryIndex.java:223)
+	at org.h2.mvstore.db.MVSecondaryIndex.add(MVSecondaryIndex.java:184)
+	at org.h2.mvstore.db.MVTable.addRowsToIndex(MVTable.java:709)
+	at org.h2.mvstore.db.MVTable.rebuildIndexBuffered(MVTable.java:467)
+	at org.h2.mvstore.db.MVTable.rebuildIndex(MVTable.java:387)
+	at org.h2.mvstore.db.MVTable.addIndex(MVTable.java:367)
+	at org.h2.command.ddl.CreateIndex.update(CreateIndex.java:103)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:441)
+	... 61 common frames omitted
+30-11-2023 12:36:45.737 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 85395 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 12:36:45.739 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 12:36:46.879 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 12:36:46.977 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 82 ms. Found 4 JPA repository interfaces.
+30-11-2023 12:36:47.573 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 12:36:47.584 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 12:36:47.585 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 12:36:47.666 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 12:36:47.667 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1877 ms
+30-11-2023 12:36:47.694 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 12:36:48.002 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 12:36:48.003 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 12:36:48.015 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 12:36:48.229 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 12:36:48.466 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.469 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.476 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.480 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.487 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.487 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 12:36:48.498 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 12:36:48.501 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.502 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 12:36:48.504 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.505 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.565 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:36:48.566 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 27ms
+30-11-2023 12:36:48.570 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.572 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.576 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:36:48.577 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 12:36:48.579 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.587 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:36:48.588 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 7ms
+30-11-2023 12:36:48.589 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.594 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:36:48.595 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 12:36:48.596 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.600 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:36:48.601 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 12:36:48.602 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.604 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:36:48.605 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 12:36:48.606 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.607 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 12:36:48.609 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:36:48.610 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 12:36:48.703 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 12:36:48.783 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 12:36:48.786 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 12:36:49.235 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 12:36:49.319 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 12:36:50.588 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 12:36:50.632 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 12:36:51.210 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-11-2023 12:36:51.658 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+30-11-2023 12:36:51.667 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 6.571 seconds (process running for 7.4)
+30-11-2023 12:38:41.634 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 12:38:41.656 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+30-11-2023 12:38:41.665 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+30-11-2023 12:38:44.794 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 85418 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 12:38:44.797 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 12:38:45.535 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 12:38:45.615 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 67 ms. Found 4 JPA repository interfaces.
+30-11-2023 12:38:46.144 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 12:38:46.156 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 12:38:46.157 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 12:38:46.238 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 12:38:46.239 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1368 ms
+30-11-2023 12:38:46.263 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 12:38:46.487 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 12:38:46.488 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 12:38:46.499 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 12:38:46.687 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 12:38:46.907 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:46.910 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:46.914 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:46.917 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:46.920 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:46.921 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 12:38:46.933 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 12:38:46.937 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:46.938 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 12:38:46.940 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:46.941 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:46.993 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:38:46.994 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 22ms
+30-11-2023 12:38:46.998 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:47.003 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:47.007 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:38:47.008 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 12:38:47.010 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:47.018 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:38:47.020 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 6ms
+30-11-2023 12:38:47.021 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:47.026 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:38:47.027 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 12:38:47.028 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:47.034 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:38:47.035 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 5ms
+30-11-2023 12:38:47.037 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:47.043 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:38:47.044 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 5ms
+30-11-2023 12:38:47.045 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:47.046 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 12:38:47.048 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:38:47.048 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 12:38:47.133 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 12:38:47.210 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 12:38:47.215 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 12:38:47.535 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 12:38:47.577 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 12:38:48.663 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 12:38:48.697 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 12:38:49.216 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-11-2023 12:38:49.594 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+30-11-2023 12:38:49.603 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 5.352 seconds (process running for 6.309)
+30-11-2023 12:53:21.738 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 85650 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+30-11-2023 12:53:21.742 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+30-11-2023 12:53:22.620 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+30-11-2023 12:53:22.694 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 61 ms. Found 4 JPA repository interfaces.
+30-11-2023 12:53:23.301 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+30-11-2023 12:53:23.316 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+30-11-2023 12:53:23.316 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+30-11-2023 12:53:23.406 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+30-11-2023 12:53:23.406 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1603 ms
+30-11-2023 12:53:23.436 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+30-11-2023 12:53:23.769 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+30-11-2023 12:53:23.770 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+30-11-2023 12:53:23.783 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+30-11-2023 12:53:23.972 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+30-11-2023 12:53:24.238 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.241 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.245 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.249 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.255 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.256 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+30-11-2023 12:53:24.267 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+30-11-2023 12:53:24.271 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.272 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+30-11-2023 12:53:24.274 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.275 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.334 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:53:24.335 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 26ms
+30-11-2023 12:53:24.339 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.341 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.343 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:53:24.344 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 12:53:24.346 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.350 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:53:24.350 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 12:53:24.352 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.355 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:53:24.357 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 12:53:24.358 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.361 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:53:24.362 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+30-11-2023 12:53:24.363 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.368 [main] INFO  liquibase.changelog.log - Custom SQL executed
+30-11-2023 12:53:24.369 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 4ms
+30-11-2023 12:53:24.371 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.372 [main] INFO  liquibase.log - Update command completed successfully.
+30-11-2023 12:53:24.375 [main] INFO  liquibase.executor.log - Changelog query completed.
+30-11-2023 12:53:24.375 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+30-11-2023 12:53:24.454 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+30-11-2023 12:53:24.525 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+30-11-2023 12:53:24.528 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+30-11-2023 12:53:24.893 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+30-11-2023 12:53:24.944 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+30-11-2023 12:53:25.999 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+30-11-2023 12:53:26.038 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+30-11-2023 12:53:26.597 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+30-11-2023 12:53:26.991 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+30-11-2023 12:53:26.999 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 5.854 seconds (process running for 6.781)

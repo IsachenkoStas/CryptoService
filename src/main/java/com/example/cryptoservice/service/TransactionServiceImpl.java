@@ -7,6 +7,7 @@ import com.example.cryptoservice.domain.dto.WithdrawDto;
 import com.example.cryptoservice.exception_resolver.NotEnoughMoneyException;
 import com.example.cryptoservice.exception_resolver.NotEqualCurrencyException;
 import com.example.cryptoservice.exception_resolver.TransactionNotFoundException;
+import com.example.cryptoservice.repository.AccountRepository;
 import com.example.cryptoservice.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,7 @@ public class TransactionServiceImpl implements TransactionService {
     private final CryptoUserService userService;
     private final TransactionRepository transactionRepository;
     private final AccountService accountService;
+    private final AccountRepository accountRepository;
     private final CryptoRateService cryptoRateService;
 
     @Override
@@ -79,6 +81,14 @@ public class TransactionServiceImpl implements TransactionService {
             throw new NotEnoughMoneyException("Account with id:" + depAccount.getId() + " does not have enough balance to transfer.");
         }
         depAccount.setBalance(depAccount.getBalance().subtract(deposit.getAmount()));
+        Account acc = Account.builder()
+                .accountType(AccountType.DEPOSIT)
+                .balance(deposit.getAmount())
+                .currencyCode(depAccount.getCurrencyCode())
+                .user(userService.findById(deposit.getUserId()))
+                .build();
+        accountRepository.save(acc);
+
         Transaction depositTransaction = Transaction.builder()
                 .amount(deposit.getAmount())
                 .transactionType(TransactionType.DEPOSIT)
@@ -92,12 +102,15 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void withdraw(WithdrawDto withdraw) {
         Account withdrawAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getAccId());
-        Transaction withdrawTransaction = getTransactionDetails(withdraw.getUserId(), withdrawAccount.getId());
-        if (withdrawTransaction.getAmount().compareTo(withdraw.getAmount()) < 0) {
+        Account depAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getDepAccId());
+        if (depAccount.getBalance().compareTo(withdraw.getAmount()) < 0) {
             throw new NotEnoughMoneyException("Wrong amount of money");
         }
+        if (!Objects.equals(withdrawAccount.getCurrencyCode(), depAccount.getCurrencyCode())) {
+            throw new NotEqualCurrencyException("Account with id: " + withdrawAccount.getId() + " has a different currency code compared to" + depAccount.getId());
+        }
         withdrawAccount.setBalance(withdrawAccount.getBalance().add(withdraw.getAmount()));
-        withdrawTransaction.setAmount(withdrawTransaction.getAmount().subtract(withdraw.getAmount()));
+        depAccount.setBalance(depAccount.getBalance().subtract(withdraw.getAmount()));
 
         Transaction transaction = Transaction.builder()
                 .amount(withdraw.getAmount())

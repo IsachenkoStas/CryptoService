@@ -1,13 +1,23 @@
 package com.example.cryptoservice.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @Entity(name = "accounts")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(indexes = {
+        @Index(name = "accounts_currency_code_account_type_index",
+                columnList = "user_id, currency_code, account_type", unique = true)
+})
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
