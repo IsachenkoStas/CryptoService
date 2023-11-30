@@ -4,7 +4,6 @@ import com.example.cryptoservice.domain.Account;
 import com.example.cryptoservice.domain.AccountType;
 import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
-import com.example.cryptoservice.domain.dto.WithdrawDto;
 import com.example.cryptoservice.exception_resolver.NotEnoughMoneyException;
 import com.example.cryptoservice.exception_resolver.NotEqualCurrencyException;
 import org.springframework.stereotype.Service;
@@ -38,7 +37,7 @@ public class TransactionValidationService {
     }
 
 
-    public void validateWithdraw(WithdrawDto withdraw, Account withdrawAcc, Account depAcc) {
+    public void validateWithdraw(TransferDto withdraw, Account withdrawAcc, Account depAcc) {
         if (!Objects.equals(depAcc.getAccountType(), AccountType.DEPOSIT)) {
             throw new UnsupportedOperationException("Account with id: " + depAcc.getId() + " is deposit account.");
         }

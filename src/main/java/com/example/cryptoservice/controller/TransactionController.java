@@ -1,9 +1,9 @@
 package com.example.cryptoservice.controller;
 
+import com.example.cryptoservice.domain.dto.AccountDto;
 import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransactionDetailsDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
-import com.example.cryptoservice.domain.dto.WithdrawDto;
 import com.example.cryptoservice.service.TransactionService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -53,7 +52,7 @@ public class TransactionController {
     }
 
     @PostMapping("/withdraw")
-    public ResponseEntity<Void> withdraw(@RequestBody @Valid WithdrawDto withdrawDto) {
+    public ResponseEntity<Void> withdraw(@RequestBody @Valid TransferDto withdrawDto) {
         service.withdraw(withdrawDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -65,7 +64,8 @@ public class TransactionController {
     }
 
     @GetMapping("/my-rewards/{userId}/{accId}")
-    private ResponseEntity<BigDecimal> checkMyRewards(@PathVariable Long userId, @PathVariable Long accId) {
-        return new ResponseEntity<>(service.checkMyRewards(userId, accId), HttpStatus.OK);
+    private ResponseEntity<AccountDto> checkMyRewards(@PathVariable Long userId, @PathVariable Long accId) {
+        return new ResponseEntity<>(modelMapper
+                .map(service.checkMyRewards(userId, accId), AccountDto.class), HttpStatus.OK);
     }
 }

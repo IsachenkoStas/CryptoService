@@ -13,7 +13,7 @@ public class WithdrawDto {
     private Long userId;
 
     @NotNull
-    private Long accId;
+    private Long withdrawAccId;
 
     @NotNull
     private Long depAccId;
