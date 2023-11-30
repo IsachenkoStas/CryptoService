@@ -74,7 +74,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Transactional
     @Override
     public void deposit(DepositDto deposit) {
-        Account depAccount = accountService.getAccountDetails(deposit.getUserId(), deposit.getAccountId());
+        Account depAccount = accountService.getAccountDetails(deposit.getUserId(), deposit.getAccId());
         if (depAccount.getBalance().compareTo(deposit.getAmount()) < 0) {
             throw new NotEnoughMoneyException("Account with id:" + depAccount.getId() + " does not have enough balance to transfer.");
         }
@@ -113,7 +113,7 @@ public class TransactionServiceImpl implements TransactionService {
     public void swap(TransferDto swap) {
         Account accFrom = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdFrom());
         Account accTo = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdTo());
-        CryptoRate targetRate = cryptoRateService.getRate(accFrom.getCurrencyCode().toString(), accTo.getCurrencyCode().toString());
+        CryptoRate targetRate = cryptoRateService.getCurrencyRate(accFrom.getCurrencyCode().toString(), accTo.getCurrencyCode().toString());
         BigDecimal rate = targetRate.getRate();
         if (accFrom.getBalance().compareTo(swap.getAmount()) < 0) {
             throw new NotEnoughMoneyException("Account with id:" + accFrom.getId() + " does not have enough balance to transfer.");

@@ -1,9 +1,12 @@
 package com.example.cryptoservice.service;
 
 import com.example.cryptoservice.domain.CryptoRate;
-import com.example.cryptoservice.domain.CurrencyCode;
+
+import java.util.List;
 
 public interface CryptoRateService {
 
-    CryptoRate getRate(String base, String target);
+    CryptoRate getCurrencyRate(String base, String target);
+
+    List<CryptoRate> getAllRates();
 }

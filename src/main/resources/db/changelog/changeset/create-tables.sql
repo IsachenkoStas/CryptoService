@@ -17,7 +17,7 @@ create table accounts
     last_interest_application   timestamp null,
     interest_compounding_period varchar(10) null,
     created                     timestamp     default CURRENT_TIMESTAMP,
-    foreign key (user_id) references crypto_users(id)
+    foreign key (user_id) references crypto_users (id)
 );
 
 create table transactions
@@ -27,14 +27,14 @@ create table transactions
     created          timestamp default CURRENT_TIMESTAMP,
     account_id       bigint         not null,
     transaction_type varchar(20)    not null,
-    foreign key (account_id) references accounts(id)
+    foreign key (account_id) references accounts (id)
 );
 
 create table crypto_rates
 (
-    id              bigint  not null AUTO_INCREMENT primary key,
-    base_currency   varchar not null,
-    target_currency varchar not null,
-    rate            decimal(15,6) not null,
+    id              bigint         not null AUTO_INCREMENT primary key,
+    base_currency   varchar        not null,
+    target_currency varchar        not null,
+    rate            decimal(15, 6) not null,
     last_updated    timestamp default CURRENT_TIMESTAMP
 );

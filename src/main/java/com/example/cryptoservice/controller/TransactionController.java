@@ -31,21 +31,21 @@ public class TransactionController {
                 .map(acc -> modelMapper.map(acc, TransactionDetailsDto.class)).toList(), HttpStatus.OK);
     }
 
-    @PostMapping("/transfers")
+    @PostMapping("/transfer")
     public ResponseEntity<Void> transfer(@RequestBody @Valid TransferDto transferDto) {
         service.transfer(transferDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PostMapping("/deposits")
+    @PostMapping("/deposit")
     public ResponseEntity<Void> deposit(@RequestBody @Valid DepositDto depositDto) {
         service.deposit(depositDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PostMapping("/withdraw")
-    public ResponseEntity<Void> withdraw(@RequestBody @Valid WithdrawDto withdraw) {
-        service.withdraw(withdraw);
+    public ResponseEntity<Void> withdraw(@RequestBody @Valid WithdrawDto withdrawDto) {
+        service.withdraw(withdrawDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
