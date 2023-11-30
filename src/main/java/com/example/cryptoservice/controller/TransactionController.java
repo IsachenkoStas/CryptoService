@@ -63,8 +63,9 @@ public class TransactionController {
         service.swap(swapDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
     @GetMapping("/my-rewards/{userId}/{accId}")
-    private ResponseEntity<BigDecimal> checkMyRewards(@PathVariable Long userId, @PathVariable Long accId){
+    private ResponseEntity<BigDecimal> checkMyRewards(@PathVariable Long userId, @PathVariable Long accId) {
         return new ResponseEntity<>(service.checkMyRewards(userId, accId), HttpStatus.OK);
     }
 }

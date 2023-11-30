@@ -10,8 +10,6 @@ import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
 import com.example.cryptoservice.domain.dto.WithdrawDto;
 import com.example.cryptoservice.exception_resolver.NotDepositAccountException;
-import com.example.cryptoservice.exception_resolver.NotEnoughMoneyException;
-import com.example.cryptoservice.exception_resolver.NotEqualCurrencyException;
 import com.example.cryptoservice.exception_resolver.TransactionNotFoundException;
 import com.example.cryptoservice.repository.AccountRepository;
 import com.example.cryptoservice.repository.TransactionRepository;
@@ -78,6 +76,7 @@ public class TransactionServiceImpl implements TransactionService {
     public void deposit(DepositDto deposit) {
         Account depAccount = accountService.getAccountDetails(deposit.getUserId(), deposit.getAccId());
         transactionValidation.validateDeposit(deposit, depAccount);
+
         depAccount.setBalance(depAccount.getBalance().subtract(deposit.getAmount()));
         Account acc = Account.builder()
                 .accountType(AccountType.DEPOSIT)
@@ -102,6 +101,7 @@ public class TransactionServiceImpl implements TransactionService {
         Account withdrawAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getAccId());
         Account depAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getDepAccId());
         transactionValidation.validateWithdraw(withdraw, withdrawAccount, depAccount);
+
         withdrawAccount.setBalance(withdrawAccount.getBalance().add(withdraw.getAmount()));
         depAccount.setBalance(depAccount.getBalance().subtract(withdraw.getAmount()));
         Transaction transaction = Transaction.builder()
@@ -140,18 +140,6 @@ public class TransactionServiceImpl implements TransactionService {
                 .created(LocalDateTime.now())
                 .build();
         transactionRepository.save(transactionAccTo);
-    }
-
-    /*private void validateByDepositEquals(Account acc) {
-        if (Objects.equals(acc.getAccountType(), AccountType.DEPOSIT)) {
-            throw new UnsupportedOperationException("Account with id: " + acc.getId() + " is deposit account.");
-        }
-    }*/
-
-    private void validateByDepositNotEquals(Account acc) {
-        if (!Objects.equals(acc.getAccountType(), AccountType.DEPOSIT)) {
-            throw new UnsupportedOperationException("Account with id: " + acc.getId() + " is deposit account.");
-        }
     }
 
     @Override
