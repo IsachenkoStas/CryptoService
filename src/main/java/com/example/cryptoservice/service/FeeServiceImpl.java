@@ -1,0 +1,31 @@
+package com.example.cryptoservice.service;
+
+import com.example.cryptoservice.domain.Account;
+import com.example.cryptoservice.domain.TransactionFee;
+import com.example.cryptoservice.domain.dto.TransferDto;
+import com.example.cryptoservice.repository.TransactionFeeRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+@RequiredArgsConstructor
+@Service
+public class FeeServiceImpl implements FeeService {
+
+    private final TransactionFeeRepository feeRepository;
+
+    @Override
+    public BigDecimal fee(TransferDto transfer, Account accFrom) {
+        BigDecimal feeAmount = transfer.getAmount().multiply(BigDecimal.valueOf(0.01));
+
+        TransactionFee fee = TransactionFee.builder()
+                .currency(accFrom.getCurrencyCode().toString())
+                .amount(feeAmount)
+                .last_updated(LocalDateTime.now())
+                .build();
+        feeRepository.save(fee);
+        return feeAmount;
+    }
+}
