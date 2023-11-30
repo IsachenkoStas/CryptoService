@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CryptoUserService {
     List<CryptoUser> getAllUsers();
+
+    CryptoUser findById(Long id);
 }
