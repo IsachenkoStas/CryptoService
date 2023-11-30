@@ -19,6 +19,6 @@ public class WithdrawDto {
     private Long depAccId;
 
     @NotNull
-    @Min(value = 0, message = "Transfer amount can not be less than zero")
+    @Min(value = 0)
     private BigDecimal amount;
 }

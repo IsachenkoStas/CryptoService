@@ -1,4 +1,5 @@
 package com.example.cryptoservice.domain;
+import com.example.cryptoservice.validation.UniqueLogin;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -15,6 +16,7 @@ public class CryptoUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @UniqueLogin
     @Column(name = "login", nullable = false)
     private String login;
 

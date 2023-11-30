@@ -8,4 +8,6 @@ public interface CryptoUserService {
     List<CryptoUser> getAllUsers();
 
     CryptoUser findById(Long id);
+
+    Long countByLogin(String login);
 }
