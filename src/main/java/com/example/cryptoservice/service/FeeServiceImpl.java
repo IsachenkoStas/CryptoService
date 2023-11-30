@@ -20,12 +20,17 @@ public class FeeServiceImpl implements FeeService {
     public BigDecimal fee(TransferDto transfer, Account accFrom) {
         BigDecimal feeAmount = transfer.getAmount().multiply(BigDecimal.valueOf(0.01));
 
-        TransactionFee fee = TransactionFee.builder()
-                .currency(accFrom.getCurrencyCode().toString())
-                .amount(feeAmount)
-                .last_updated(LocalDateTime.now())
-                .build();
+        TransactionFee fee = feeRepository.findByCurrency(accFrom.getCurrencyCode().toString());
+        fee.setAmount(fee.getAmount().add(feeAmount));
+        fee.setLast_updated(LocalDateTime.now());
+
         feeRepository.save(fee);
         return feeAmount;
     }
 }
+/*TransactionFee fee = TransactionFee.builder()
+            .currency(accFrom.getCurrencyCode().toString())
+            .amount(feeAmount)
+            .last_updated(LocalDateTime.now())
+            .build();
+    */

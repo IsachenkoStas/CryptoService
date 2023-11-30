@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TransactionFeeRepository extends JpaRepository<TransactionFee, Long> {
-
+    TransactionFee findByCurrency(String curr);
 }

@@ -5,17 +5,14 @@ import com.example.cryptoservice.domain.AccountType;
 import com.example.cryptoservice.domain.CryptoRate;
 import com.example.cryptoservice.domain.CryptoUser;
 import com.example.cryptoservice.domain.Transaction;
-import com.example.cryptoservice.domain.TransactionFee;
 import com.example.cryptoservice.domain.TransactionType;
 import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
 import com.example.cryptoservice.exception_resolver.NotDepositAccountException;
 import com.example.cryptoservice.exception_resolver.TransactionNotFoundException;
 import com.example.cryptoservice.repository.AccountRepository;
-import com.example.cryptoservice.repository.TransactionFeeRepository;
 import com.example.cryptoservice.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
-import org.h2.value.Transfer;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
