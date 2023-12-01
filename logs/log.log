@@ -61,3 +61,495 @@
 01-12-2023 10:56:25.610 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
 01-12-2023 10:56:25.615 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
 01-12-2023 10:56:25.617 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+01-12-2023 13:07:28.184 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 94425 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+01-12-2023 13:07:28.188 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+01-12-2023 13:07:29.208 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-12-2023 13:07:29.319 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 94 ms. Found 5 JPA repository interfaces.
+01-12-2023 13:07:30.001 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+01-12-2023 13:07:30.016 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+01-12-2023 13:07:30.017 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+01-12-2023 13:07:30.158 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+01-12-2023 13:07:30.158 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1898 ms
+01-12-2023 13:07:30.195 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+01-12-2023 13:07:30.543 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+01-12-2023 13:07:30.545 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+01-12-2023 13:07:30.576 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+01-12-2023 13:07:30.829 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+01-12-2023 13:07:31.131 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.134 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.138 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.141 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.146 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.146 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+01-12-2023 13:07:31.162 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+01-12-2023 13:07:31.166 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.167 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+01-12-2023 13:07:31.169 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.170 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.276 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:07:31.277 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 33ms
+01-12-2023 13:07:31.281 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.283 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.286 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:07:31.286 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 3ms
+01-12-2023 13:07:31.288 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.292 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:07:31.294 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 4ms
+01-12-2023 13:07:31.295 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.299 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:07:31.300 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 3ms
+01-12-2023 13:07:31.301 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.305 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:07:31.306 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+01-12-2023 13:07:31.307 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.310 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:07:31.311 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 3ms
+01-12-2023 13:07:31.312 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.315 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:07:31.315 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transaction-fees.sql::raw::includeAll ran successfully in 2ms
+01-12-2023 13:07:31.317 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.318 [main] INFO  liquibase.log - Update command completed successfully.
+01-12-2023 13:07:31.319 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:07:31.320 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+01-12-2023 13:07:31.426 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+01-12-2023 13:07:31.529 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+01-12-2023 13:07:31.533 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+01-12-2023 13:07:32.014 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+01-12-2023 13:07:32.090 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+01-12-2023 13:07:33.314 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+01-12-2023 13:07:33.363 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-12-2023 13:07:33.978 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-12-2023 13:07:34.425 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+01-12-2023 13:07:34.437 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 6.851 seconds (process running for 7.957)
+01-12-2023 13:07:34.616 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:07:34.627 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:07:34.641 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:07:34.667 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:07:34.692 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:07:34.699 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:07:34.700 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:07:44.442 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:07:44.446 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:07:44.447 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:07:44.449 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:07:44.451 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:07:44.453 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:07:44.454 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:07:54.443 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:07:54.446 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:07:54.447 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:07:54.450 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:07:54.452 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:07:54.454 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:07:54.455 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:08:04.458 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:08:04.479 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:08:04.481 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:08:04.484 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:08:04.493 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:08:04.496 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:08:04.498 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:08:14.440 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:08:14.444 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:08:14.445 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:08:14.447 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:08:14.449 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:08:14.451 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:08:14.453 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:08:24.439 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:08:24.441 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:08:24.443 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:08:24.444 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:08:24.446 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:08:24.448 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:08:24.449 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:08:34.441 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:08:34.443 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:08:34.446 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:08:34.448 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:08:34.450 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:08:34.451 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:08:34.453 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:08:34.692 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+01-12-2023 13:08:34.700 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+01-12-2023 13:08:34.707 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+01-12-2023 13:20:00.832 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 94572 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+01-12-2023 13:20:00.835 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+01-12-2023 13:20:01.862 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-12-2023 13:20:01.948 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 71 ms. Found 5 JPA repository interfaces.
+01-12-2023 13:20:02.559 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+01-12-2023 13:20:02.574 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+01-12-2023 13:20:02.575 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+01-12-2023 13:20:02.666 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+01-12-2023 13:20:02.667 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1784 ms
+01-12-2023 13:20:02.691 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+01-12-2023 13:20:03.013 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+01-12-2023 13:20:03.014 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+01-12-2023 13:20:03.026 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+01-12-2023 13:20:03.245 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+01-12-2023 13:20:03.485 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.487 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.493 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.496 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.500 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.500 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+01-12-2023 13:20:03.512 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+01-12-2023 13:20:03.516 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.517 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+01-12-2023 13:20:03.518 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.519 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.596 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:20:03.598 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 39ms
+01-12-2023 13:20:03.602 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.603 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.608 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:20:03.609 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 4ms
+01-12-2023 13:20:03.611 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.637 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:20:03.638 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 6ms
+01-12-2023 13:20:03.640 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.643 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:20:03.644 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 4ms
+01-12-2023 13:20:03.645 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.649 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:20:03.650 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+01-12-2023 13:20:03.651 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.654 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:20:03.654 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 3ms
+01-12-2023 13:20:03.655 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.658 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:20:03.658 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transaction-fees.sql::raw::includeAll ran successfully in 2ms
+01-12-2023 13:20:03.659 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.660 [main] INFO  liquibase.log - Update command completed successfully.
+01-12-2023 13:20:03.662 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:20:03.662 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+01-12-2023 13:20:03.762 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+01-12-2023 13:20:03.838 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+01-12-2023 13:20:03.841 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+01-12-2023 13:20:04.188 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+01-12-2023 13:20:04.243 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+01-12-2023 13:20:05.321 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+01-12-2023 13:20:05.354 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-12-2023 13:20:05.894 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-12-2023 13:20:06.250 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+01-12-2023 13:20:06.261 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 6.071 seconds (process running for 7.003)
+01-12-2023 13:20:10.148 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:20:10.161 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:20:10.169 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:20:10.185 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:20:10.208 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:20:10.212 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:20:10.214 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:20:20.002 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:20:20.097 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:20:20.100 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:20:20.103 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:20:20.110 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:20:20.113 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:20:20.118 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:20:30.003 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:20:30.022 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:20:30.031 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:20:30.034 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:20:30.039 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:20:30.051 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:20:30.053 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:20:40.005 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:20:40.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:20:40.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:20:40.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:20:40.013 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:20:40.016 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:20:40.017 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:20:45.168 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+01-12-2023 13:20:45.172 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+01-12-2023 13:20:45.175 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+01-12-2023 13:21:56.406 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 94595 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+01-12-2023 13:21:56.431 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+01-12-2023 13:21:57.256 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-12-2023 13:21:57.338 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 67 ms. Found 5 JPA repository interfaces.
+01-12-2023 13:21:57.927 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+01-12-2023 13:21:57.940 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+01-12-2023 13:21:57.941 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+01-12-2023 13:21:58.024 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+01-12-2023 13:21:58.024 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1509 ms
+01-12-2023 13:21:58.047 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+01-12-2023 13:21:58.352 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+01-12-2023 13:21:58.354 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+01-12-2023 13:21:58.364 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+01-12-2023 13:21:58.560 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+01-12-2023 13:21:58.808 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.811 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.816 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.819 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.823 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.824 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+01-12-2023 13:21:58.834 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+01-12-2023 13:21:58.838 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.839 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+01-12-2023 13:21:58.841 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.842 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.904 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:21:58.905 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 29ms
+01-12-2023 13:21:58.909 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.910 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.913 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:21:58.914 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 3ms
+01-12-2023 13:21:58.916 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.920 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:21:58.921 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 4ms
+01-12-2023 13:21:58.922 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.926 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:21:58.927 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 4ms
+01-12-2023 13:21:58.931 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.936 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:21:58.937 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 4ms
+01-12-2023 13:21:58.939 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.943 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:21:58.944 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 4ms
+01-12-2023 13:21:58.945 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.949 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:21:58.950 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transaction-fees.sql::raw::includeAll ran successfully in 2ms
+01-12-2023 13:21:58.951 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.952 [main] INFO  liquibase.log - Update command completed successfully.
+01-12-2023 13:21:58.954 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:21:58.954 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+01-12-2023 13:21:59.048 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+01-12-2023 13:21:59.114 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+01-12-2023 13:21:59.121 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+01-12-2023 13:21:59.522 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+01-12-2023 13:21:59.580 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+01-12-2023 13:22:00.680 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+01-12-2023 13:22:00.715 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-12-2023 13:22:01.370 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-12-2023 13:22:01.776 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+01-12-2023 13:22:01.786 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 5.953 seconds (process running for 6.595)
+01-12-2023 13:22:02.154 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:02.166 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:02.175 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:02.193 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:02.218 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:02.224 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:02.226 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:03.004 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:03.005 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:03.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:03.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:03.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:03.012 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:03.014 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:04.004 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:04.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:04.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:04.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:04.012 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:04.013 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:04.015 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:05.005 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:05.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:05.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:05.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:05.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:05.013 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:05.014 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:06.002 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:06.003 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:06.005 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:06.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:06.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:06.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:06.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:07.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:07.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:07.012 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:07.014 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:07.016 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:07.017 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:07.019 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:08.001 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:08.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:08.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:08.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:08.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:08.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:08.012 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:09.003 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:09.004 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:09.005 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:09.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:09.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:09.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:09.012 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:10.004 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:10.005 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:10.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:10.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:10.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:10.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:10.012 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:11.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:11.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:11.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:11.013 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:11.021 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:11.022 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:11.025 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:12.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:12.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:12.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:12.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:12.012 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:12.013 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:12.015 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:13.002 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:13.003 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:13.005 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:13.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:13.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:13.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:13.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:14.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:14.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:14.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:14.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:14.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:14.013 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:14.014 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:15.005 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:15.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:15.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:15.012 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:15.014 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:15.016 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:15.017 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:16.003 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:16.004 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:16.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:16.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:16.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:16.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:16.013 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:17.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:17.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:17.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:17.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:17.014 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:17.016 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:17.017 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:18.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:18.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:18.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:18.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:18.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:18.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:18.013 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:19.003 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:19.004 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:19.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:19.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:19.008 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:19.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:19.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:20.006 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:20.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:20.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:20.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:20.013 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:20.015 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:20.017 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:21.002 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:22:21.004 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:21.005 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:22:21.007 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:21.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:21.010 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:22:21.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:22:21.178 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+01-12-2023 13:22:21.182 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+01-12-2023 13:22:21.184 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+01-12-2023 13:23:02.771 [main] INFO  c.e.c.CryptoServiceApplication.logStarting - Starting CryptoServiceApplication using Java 17.0.1 with PID 94608 (/Users/allencooper/IdeaProjects/CryptoService/target/classes started by allencooper in /Users/allencooper/IdeaProjects/CryptoService)
+01-12-2023 13:23:02.776 [main] INFO  c.e.c.CryptoServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+01-12-2023 13:23:03.588 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-12-2023 13:23:03.670 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 71 ms. Found 5 JPA repository interfaces.
+01-12-2023 13:23:04.236 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+01-12-2023 13:23:04.248 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+01-12-2023 13:23:04.249 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.15]
+01-12-2023 13:23:04.329 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+01-12-2023 13:23:04.330 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1430 ms
+01-12-2023 13:23:04.354 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+01-12-2023 13:23:04.601 [main] INFO  com.zaxxer.hikari.pool.HikariPool.checkFailFast - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=CRYPTO
+01-12-2023 13:23:04.602 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+01-12-2023 13:23:04.613 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration.logDataSources - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+01-12-2023 13:23:04.837 [main] INFO  liquibase.database.log - Set default schema name to PUBLIC
+01-12-2023 13:23:05.081 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.085 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.092 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.097 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.102 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.103 [main] INFO  liquibase.lockservice.log - Successfully acquired change log lock
+01-12-2023 13:23:05.116 [main] INFO  liquibase.changelog.log - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+01-12-2023 13:23:05.120 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.121 [main] INFO  liquibase.changelog.log - Reading from PUBLIC.DATABASECHANGELOG
+01-12-2023 13:23:05.122 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.123 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.186 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:23:05.187 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/create-tables.sql::raw::includeAll ran successfully in 30ms
+01-12-2023 13:23:05.191 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.192 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.195 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:23:05.196 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-users.sql::raw::includeAll ran successfully in 3ms
+01-12-2023 13:23:05.197 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.202 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:23:05.202 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-accounts.sql::raw::includeAll ran successfully in 4ms
+01-12-2023 13:23:05.204 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.207 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:23:05.208 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transactions.sql::raw::includeAll ran successfully in 3ms
+01-12-2023 13:23:05.209 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.212 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:23:05.213 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-crypto-rates.sql::raw::includeAll ran successfully in 3ms
+01-12-2023 13:23:05.214 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.217 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:23:05.218 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-unique-index.sql::raw::includeAll ran successfully in 2ms
+01-12-2023 13:23:05.219 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.221 [main] INFO  liquibase.changelog.log - Custom SQL executed
+01-12-2023 13:23:05.222 [main] INFO  liquibase.changelog.log - ChangeSet db/changelog/changeset/add-transaction-fees.sql::raw::includeAll ran successfully in 3ms
+01-12-2023 13:23:05.223 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.224 [main] INFO  liquibase.log - Update command completed successfully.
+01-12-2023 13:23:05.226 [main] INFO  liquibase.executor.log - Changelog query completed.
+01-12-2023 13:23:05.226 [main] INFO  liquibase.lockservice.log - Successfully released change log lock
+01-12-2023 13:23:05.323 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+01-12-2023 13:23:05.391 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 6.2.13.Final
+01-12-2023 13:23:05.394 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000406: Using bytecode reflection optimizer
+01-12-2023 13:23:05.745 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer - No LoadTimeWeaver setup: ignoring JPA class transformer
+01-12-2023 13:23:05.787 [main] WARN  org.hibernate.orm.deprecation.constructDialect - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+01-12-2023 13:23:06.869 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+01-12-2023 13:23:06.904 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-12-2023 13:23:07.458 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-12-2023 13:23:07.826 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+01-12-2023 13:23:07.836 [main] INFO  c.e.c.CryptoServiceApplication.logStarted - Started CryptoServiceApplication in 5.603 seconds (process running for 6.209)
+01-12-2023 13:23:30.185 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:23:30.197 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:23:30.205 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:23:30.227 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:23:30.253 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:23:30.257 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:23:30.259 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:23:45.400 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+01-12-2023 13:23:45.401 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+01-12-2023 13:23:45.403 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 2 ms
+01-12-2023 13:23:45.493 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:23:45.500 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.id=? and a1_0.user_id=?
+01-12-2023 13:23:49.227 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:23:49.230 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.id=? and a1_0.user_id=?
+01-12-2023 13:24:00.005 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.account_type=?
+01-12-2023 13:24:00.009 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:24:00.011 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:24:00.013 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:24:00.015 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:24:00.017 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id,u1_0.id,u1_0.login,u1_0.password,u1_0.user_role from accounts a1_0 join crypto_users u1_0 on u1_0.id=a1_0.user_id where a1_0.id=?
+01-12-2023 13:24:00.019 [scheduling-1] DEBUG org.hibernate.SQL.logStatement - update accounts set account_type=?,balance=?,created=?,currency_code=?,interest_compounding_period=?,interest_rate=?,last_interest_application=?,user_id=? where id=?
+01-12-2023 13:24:24.653 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL.logStatement - select c1_0.id,c1_0.login,c1_0.password,c1_0.user_role from crypto_users c1_0 where c1_0.id=?
+01-12-2023 13:24:24.657 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL.logStatement - select a1_0.id,a1_0.account_type,a1_0.balance,a1_0.created,a1_0.currency_code,a1_0.interest_compounding_period,a1_0.interest_rate,a1_0.last_interest_application,a1_0.user_id from accounts a1_0 where a1_0.id=? and a1_0.user_id=?
+01-12-2023 13:24:27.314 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+01-12-2023 13:24:27.318 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+01-12-2023 13:24:27.320 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.

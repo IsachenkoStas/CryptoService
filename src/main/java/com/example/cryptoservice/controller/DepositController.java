@@ -16,9 +16,9 @@ public class DepositController {
 
     private final AccountService accountService;
 
-    @PostMapping("/update")
+/*    @PostMapping("/update")
     public ResponseEntity<Void> depositUpdate() {
         accountService.updateAllDepositAccounts();
         return new ResponseEntity<>(HttpStatus.CREATED);
-    }
+    }*/
 }

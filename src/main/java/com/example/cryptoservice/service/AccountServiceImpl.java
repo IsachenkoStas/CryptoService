@@ -1,14 +1,12 @@
 package com.example.cryptoservice.service;
 
 import com.example.cryptoservice.domain.Account;
-import com.example.cryptoservice.domain.AccountType;
 import com.example.cryptoservice.domain.CryptoUser;
 import com.example.cryptoservice.exception_resolver.AccountNotFoundException;
 import com.example.cryptoservice.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -48,18 +46,6 @@ public class AccountServiceImpl implements AccountService {
         return repository.findAccountByIdAndUser(accountId, user)
                 .orElseThrow(() -> new AccountNotFoundException("Account with id " + accountId + " not found"));
     }
-
-    @Override
-    public void updateAllDepositAccounts() {
-        List<Account> depositAccounts = repository.findAllByAccountType(AccountType.DEPOSIT);
-        if (!depositAccounts.isEmpty()) {
-            for (Account account : depositAccounts) {
-                account.setBalance(account.getBalance().add(account.getBalance().multiply(BigDecimal.valueOf(0.1))));
-                repository.save(account);
-            }
-        }
-    }
-    //
 
     /*    @Override
     public boolean deleteAccFromUserById(Long userId, Long accountId) {
