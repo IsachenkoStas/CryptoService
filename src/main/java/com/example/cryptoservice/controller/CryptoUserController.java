@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/crypto-user")
+@RequestMapping("/crypto-users")
 public class CryptoUserController {
 
     private final CryptoUserService cryptoUserService;

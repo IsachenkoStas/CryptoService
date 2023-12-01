@@ -1,15 +1,17 @@
 package com.example.cryptoservice.service;
 
 import com.example.cryptoservice.domain.Account;
+import com.example.cryptoservice.domain.AccountType;
+import com.example.cryptoservice.domain.CryptoRate;
 import com.example.cryptoservice.domain.CryptoUser;
 import com.example.cryptoservice.domain.Transaction;
 import com.example.cryptoservice.domain.TransactionType;
 import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
 import com.example.cryptoservice.domain.dto.WithdrawDto;
-import com.example.cryptoservice.exception_resolver.NotEnoughMoneyException;
-import com.example.cryptoservice.exception_resolver.NotEqualCurrencyException;
+import com.example.cryptoservice.exception_resolver.NotDepositAccountException;
 import com.example.cryptoservice.exception_resolver.TransactionNotFoundException;
+import com.example.cryptoservice.repository.AccountRepository;
 import com.example.cryptoservice.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,9 @@ public class TransactionServiceImpl implements TransactionService {
     private final CryptoUserService userService;
     private final TransactionRepository transactionRepository;
     private final AccountService accountService;
+    private final AccountRepository accountRepository;
+    private final CryptoRateService cryptoRateService;
+    private final TransactionValidationService transactionValidation;
 
     @Override
     public Transaction getTransactionDetails(Long userId, Long transactionId) {
@@ -46,14 +51,7 @@ public class TransactionServiceImpl implements TransactionService {
     public void transfer(TransferDto transfer) {
         Account accountFrom = accountService.getAccountDetails(transfer.getUserId(), transfer.getAccIdFrom());
         Account accountTo = accountService.getById(transfer.getAccIdTo());
-        if (accountFrom.getBalance().compareTo(transfer.getAmount()) < 0) {
-            throw new NotEnoughMoneyException("Account with id:" + accountFrom.getId() + " does not have enough balance to transfer.");
-        }
-        if (!Objects.equals(accountFrom.getCurrencyCode(), accountTo.getCurrencyCode())) {
-            throw new NotEqualCurrencyException("Account with id: " + accountFrom.getId() + " has a different currency code compared to" + accountTo.getId());
-        }
-
-        accountFrom.setBalance(accountFrom.getBalance().subtract(transfer.getAmount()));
+        transactionValidation.validateTransfer(transfer, accountFrom, accountTo);
         accountTo.setBalance(accountTo.getBalance().add(transfer.getAmount()));
 
         Transaction transactionAccFrom = Transaction.builder()
@@ -76,11 +74,18 @@ public class TransactionServiceImpl implements TransactionService {
     @Transactional
     @Override
     public void deposit(DepositDto deposit) {
-        Account depAccount = accountService.getAccountDetails(deposit.getUserId(), deposit.getAccountId());
-        if (depAccount.getBalance().compareTo(deposit.getAmount()) < 0) {
-            throw new NotEnoughMoneyException("Account with id:" + depAccount.getId() + " does not have enough balance to transfer.");
-        }
+        Account depAccount = accountService.getAccountDetails(deposit.getUserId(), deposit.getAccId());
+        transactionValidation.validateDeposit(deposit, depAccount);
+
         depAccount.setBalance(depAccount.getBalance().subtract(deposit.getAmount()));
+        Account acc = Account.builder()
+                .accountType(AccountType.DEPOSIT)
+                .balance(deposit.getAmount())
+                .currencyCode(depAccount.getCurrencyCode())
+                .user(userService.findById(deposit.getUserId()))
+                .build();
+        accountRepository.save(acc);
+
         Transaction depositTransaction = Transaction.builder()
                 .amount(deposit.getAmount())
                 .transactionType(TransactionType.DEPOSIT)
@@ -94,13 +99,11 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void withdraw(WithdrawDto withdraw) {
         Account withdrawAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getAccId());
-        Transaction withdrawTransaction = getTransactionDetails(withdraw.getUserId(), withdrawAccount.getId());
-        if (withdrawTransaction.getAmount().compareTo(withdraw.getAmount()) < 0) {
-            throw new NotEnoughMoneyException("Wrong amount of money");
-        }
-        withdrawAccount.setBalance(withdrawAccount.getBalance().add(withdraw.getAmount()));
-        withdrawTransaction.setAmount(withdrawTransaction.getAmount().subtract(withdraw.getAmount()));
+        Account depAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getDepAccId());
+        transactionValidation.validateWithdraw(withdraw, withdrawAccount, depAccount);
 
+        withdrawAccount.setBalance(withdrawAccount.getBalance().add(withdraw.getAmount()));
+        depAccount.setBalance(depAccount.getBalance().subtract(withdraw.getAmount()));
         Transaction transaction = Transaction.builder()
                 .amount(withdraw.getAmount())
                 .transactionType(TransactionType.WITHDRAW)
@@ -110,13 +113,16 @@ public class TransactionServiceImpl implements TransactionService {
         transactionRepository.save(transaction);
     }
 
+    @Transactional
     @Override
     public void swap(TransferDto swap) {
         Account accFrom = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdFrom());
         Account accTo = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdTo());
-        if (accFrom.getBalance().compareTo(swap.getAmount()) < 0) {
-            throw new NotEnoughMoneyException("Account with id:" + accFrom.getId() + " does not have enough balance to transfer.");
-        }
+        transactionValidation.validateSwap(accFrom, accTo, swap);
+
+        CryptoRate targetRate = cryptoRateService.getCurrencyRate(accFrom.getCurrencyCode().toString(), accTo.getCurrencyCode().toString());
+        BigDecimal rate = targetRate.getRate();
+
         accFrom.setBalance(accFrom.getBalance().subtract(swap.getAmount()));
         Transaction transactionAccFrom = Transaction.builder()
                 .amount(swap.getAmount())
@@ -126,8 +132,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .build();
         transactionRepository.save(transactionAccFrom);
 
-        //TODO: CRYPTO RATES
-        accTo.setBalance(accTo.getBalance().add(swap.getAmount().multiply(BigDecimal.valueOf(2))));
+        accTo.setBalance(accTo.getBalance().add(swap.getAmount().multiply(rate)));
         Transaction transactionAccTo = Transaction.builder()
                 .amount(swap.getAmount())
                 .transactionType(TransactionType.SWAP)
@@ -135,5 +140,14 @@ public class TransactionServiceImpl implements TransactionService {
                 .created(LocalDateTime.now())
                 .build();
         transactionRepository.save(transactionAccTo);
+    }
+
+    @Override
+    public BigDecimal checkMyRewards(Long userId, Long accId) {
+        Account account = accountService.getAccountDetails(userId, accId);
+        if (!Objects.equals(account.getAccountType(), AccountType.DEPOSIT)) {
+            throw new NotDepositAccountException("Account with id: " + accId + " is not deposit account.");
+        }
+        return account.getBalance();
     }
 }

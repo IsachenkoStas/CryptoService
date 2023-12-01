@@ -7,3 +7,7 @@ databaseChangeLog:
       file: db/changelog/changeset/add-accounts.sql
   - include:
       file: db/changelog/changeset/add-transactions.sql
+  - include:
+      file: db/changelog/changeset/add-crypto-rates.sql
+  - include:
+      file: db/changelog/changeset/add-unique-index.sql

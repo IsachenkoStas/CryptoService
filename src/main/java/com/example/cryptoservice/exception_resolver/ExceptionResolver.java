@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ExceptionResolver {
 
     @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<String> userNotFoundException(Exception e) {
+    public ResponseEntity<String> userNotFoundException(UserNotFoundException e) {
         log.error(e.getMessage());
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(AccountNotFoundException.class)
-    public ResponseEntity<String> accountNotFoundException(Exception e) {
+    public ResponseEntity<String> accountNotFoundException(AccountNotFoundException e) {
         log.error(e.getMessage());
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
@@ -28,14 +28,32 @@ public class ExceptionResolver {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(CryptoRateNotFoundException.class)
+    public ResponseEntity<String> cryptoRateNotFoundException(CryptoRateNotFoundException e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(NotEnoughMoneyException.class)
-    public ResponseEntity<String> notEnoughMoneyException(Exception e) {
+    public ResponseEntity<String> notEnoughMoneyException(NotEnoughMoneyException e) {
         log.error(e.getMessage());
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(NotEqualCurrencyException.class)
-    public ResponseEntity<String> notEqualCurrencyException(Exception e) {
+    public ResponseEntity<String> notEqualCurrencyException(NotEqualCurrencyException e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(NotDepositAccountException.class)
+    public ResponseEntity<String> notDepositAccountException(NotDepositAccountException e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UnsupportedOperationByAccountTypeException.class)
+    public ResponseEntity<String> unsupportedOperationByAccountTypeException(UnsupportedOperationByAccountTypeException e) {
         log.error(e.getMessage());
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }

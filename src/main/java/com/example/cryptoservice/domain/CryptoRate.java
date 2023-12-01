@@ -24,7 +24,7 @@ public class CryptoRate {
     @Column(name = "target_currency", nullable = false)
     private String targetCurrency;
 
-    @Column(name = "rate", nullable = false)
+    @Column(name = "rate", nullable = false, precision = 15, scale = 6)
     private BigDecimal rate;
 
     @Temporal(TemporalType.TIMESTAMP)

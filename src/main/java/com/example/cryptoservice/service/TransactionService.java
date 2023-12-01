@@ -5,6 +5,7 @@ import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
 import com.example.cryptoservice.domain.dto.WithdrawDto;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface TransactionService {
@@ -20,4 +21,6 @@ public interface TransactionService {
     void withdraw(WithdrawDto withdraw);
 
     void swap(TransferDto swap);
+
+    BigDecimal checkMyRewards(Long userId, Long accId);
 }
