@@ -21,5 +21,5 @@ public interface TransactionService {
 
     void swap(TransferDto swap);
 
-    Account checkMyRewards(Long userId, Long accId);
+    Account getMyRewards(Long userId, Long accId);
 }

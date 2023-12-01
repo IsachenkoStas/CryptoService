@@ -150,7 +150,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public Account checkMyRewards(Long userId, Long accId) {
+    public Account getMyRewards(Long userId, Long accId) {
         Account account = accountService.getAccountDetails(userId, accId);
         if (!Objects.equals(account.getAccountType(), AccountType.DEPOSIT)) {
             throw new NotDepositAccountException("Account with id: " + accId + " is not deposit account.");

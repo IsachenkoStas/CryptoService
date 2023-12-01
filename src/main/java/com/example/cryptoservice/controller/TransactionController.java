@@ -64,8 +64,8 @@ public class TransactionController {
     }
 
     @GetMapping("/my-rewards/{userId}/{accId}")
-    private ResponseEntity<AccountDto> checkMyRewards(@PathVariable Long userId, @PathVariable Long accId) {
+    private ResponseEntity<AccountDto> getMyRewards(@PathVariable Long userId, @PathVariable Long accId) {
         return new ResponseEntity<>(modelMapper
-                .map(transactionService.checkMyRewards(userId, accId), AccountDto.class), HttpStatus.OK);
+                .map(transactionService.getMyRewards(userId, accId), AccountDto.class), HttpStatus.OK);
     }
 }
