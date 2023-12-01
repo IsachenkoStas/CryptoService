@@ -13,6 +13,10 @@ import com.example.cryptoservice.exception_resolver.TransactionNotFoundException
 import com.example.cryptoservice.repository.AccountRepository;
 import com.example.cryptoservice.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,6 +37,22 @@ public class TransactionServiceImpl implements TransactionService {
     private final TransactionValidator transactionValidation;
     private final FeeService feeService;
     public static BigDecimal FEE_INTEREST = BigDecimal.valueOf(0.01);
+
+    @Override
+    public Page<Transaction> getAllSortedByAmount(Pageable pageable) {
+        return transactionRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Transaction> getAllSortedByDate(Pageable pageable) {
+        return transactionRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Transaction> getAllTransferTransactions(Pageable pageable) {
+        TransactionType transactionType = TransactionType.TRANSFER;
+        return transactionRepository.findAllByTransactionType(transactionType, pageable);
+    }
 
     @Override
     public Transaction getTransactionDetails(Long userId, Long transactionId) {
