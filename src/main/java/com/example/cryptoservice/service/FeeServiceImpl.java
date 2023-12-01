@@ -18,7 +18,7 @@ public class FeeServiceImpl implements FeeService {
 
     @Override
     public BigDecimal fee(TransferDto transfer, Account accFrom) {
-        BigDecimal feeAmount = transfer.getAmount().multiply(BigDecimal.valueOf(0.01));
+        BigDecimal feeAmount = transfer.getAmount().multiply(TransactionServiceImpl.FEE_INTEREST);
 
         TransactionFee fee = feeRepository.findByCurrency(accFrom.getCurrencyCode().toString());
         fee.setAmount(fee.getAmount().add(feeAmount));
@@ -28,9 +28,3 @@ public class FeeServiceImpl implements FeeService {
         return feeAmount;
     }
 }
-/*TransactionFee fee = TransactionFee.builder()
-            .currency(accFrom.getCurrencyCode().toString())
-            .amount(feeAmount)
-            .last_updated(LocalDateTime.now())
-            .build();
-    */

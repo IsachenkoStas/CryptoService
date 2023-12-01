@@ -30,8 +30,9 @@ public class TransactionServiceImpl implements TransactionService {
     private final AccountService accountService;
     private final AccountRepository accountRepository;
     private final CryptoRateService cryptoRateService;
-    private final TransactionValidationService transactionValidation;
+    private final TransactionValidator transactionValidation;
     private final FeeService feeService;
+    public static BigDecimal FEE_INTEREST = BigDecimal.valueOf(0.01);
 
     @Override
     public Transaction getTransactionDetails(Long userId, Long transactionId) {
@@ -51,7 +52,6 @@ public class TransactionServiceImpl implements TransactionService {
     public void transfer(TransferDto transfer) {
         Account accountFrom = accountService.getAccountDetails(transfer.getUserId(), transfer.getAccIdFrom());
         Account accountTo = accountService.getById(transfer.getAccIdTo());
-
         transactionValidation.validateTransfer(transfer, accountFrom, accountTo);
 
         BigDecimal feeAmount = feeService.fee(transfer, accountFrom);
