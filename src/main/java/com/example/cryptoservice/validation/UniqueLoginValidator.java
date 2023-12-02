@@ -1,6 +1,5 @@
 package com.example.cryptoservice.validation;
 
-import com.example.cryptoservice.repository.CryptoUserRepository;
 import com.example.cryptoservice.service.CryptoUserService;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

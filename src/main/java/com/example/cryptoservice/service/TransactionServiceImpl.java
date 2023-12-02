@@ -14,9 +14,7 @@ import com.example.cryptoservice.repository.AccountRepository;
 import com.example.cryptoservice.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,22 +34,17 @@ public class TransactionServiceImpl implements TransactionService {
     private final CryptoRateService cryptoRateService;
     private final TransactionValidator transactionValidation;
     private final FeeService feeService;
-    public static BigDecimal FEE_INTEREST = BigDecimal.valueOf(0.01);
+    public static BigDecimal FEE_INTEREST = new BigDecimal("0.01");
 
     @Override
-    public Page<Transaction> getAllSortedByAmount(Pageable pageable) {
-        return transactionRepository.findAll(pageable);
-    }
-
-    @Override
-    public Page<Transaction> getAllSortedByDate(Pageable pageable) {
-        return transactionRepository.findAll(pageable);
-    }
-
-    @Override
-    public List<Transaction> getAllTransferTransactions(Pageable pageable) {
-        TransactionType transactionType = TransactionType.TRANSFER;
-        return transactionRepository.findAllByTransactionType(transactionType, pageable);
+    public Page<Transaction> getAllTransactions(Pageable pageable, TransactionType transactionType) {
+        Page<Transaction> transactions;
+        if (transactionType != null) {
+            transactions = transactionRepository.findAllByTransactionType(transactionType, pageable);
+        } else {
+            transactions = transactionRepository.findAll(pageable);
+        }
+        return transactions;
     }
 
     @Override
@@ -66,6 +59,8 @@ public class TransactionServiceImpl implements TransactionService {
         CryptoUser user = userService.findById(id);
         return transactionRepository.findByAccount_User(user);
     }
+
+    //TODO: ONE TEST PER ONE SERVICE
 
     @Transactional
     @Override

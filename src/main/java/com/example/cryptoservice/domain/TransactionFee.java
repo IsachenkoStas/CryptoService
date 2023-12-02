@@ -27,6 +27,8 @@ import java.time.LocalDateTime;
                 columnList = "currency", unique = true)
 })
 public class TransactionFee {
+    //TODO: CHECK FEES ONLY FOR ADMIN
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

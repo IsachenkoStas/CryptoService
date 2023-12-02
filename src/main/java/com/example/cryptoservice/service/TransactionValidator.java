@@ -21,18 +21,17 @@ public class TransactionValidator {
     }
 
     public void validateDeposit(DepositDto deposit, Account depAcc) {
-        if (!Objects.equals(depAcc.getAccountType(), AccountType.DEPOSIT)) {
-            throw new UnsupportedOperationByAccountTypeException("Account with id: " + depAcc.getId() + " is deposit account.");
+        if (Objects.equals(depAcc.getAccountType(), AccountType.DEPOSIT)) {
+            throw new UnsupportedOperationByAccountTypeException("Account with id: " + depAcc.getId() + " is not deposit account.");
         }
         if (depAcc.getBalance().compareTo(deposit.getAmount()) < 0) {
             throw new NotEnoughMoneyException("Account with id:" + depAcc.getId() + " does not have enough balance to transfer.");
         }
     }
 
-
     public void validateWithdraw(TransferDto withdraw, Account withdrawAcc, Account depAcc) {
         if (!Objects.equals(depAcc.getAccountType(), AccountType.DEPOSIT)) {
-            throw new UnsupportedOperationByAccountTypeException("Account with id: " + depAcc.getId() + " is deposit account.");
+            throw new UnsupportedOperationByAccountTypeException("Account with id: " + depAcc.getId() + " is not deposit account.");
         }
         if (depAcc.getBalance().compareTo(withdraw.getAmount()) < 0) {
             throw new NotEnoughMoneyException("Wrong amount of money");

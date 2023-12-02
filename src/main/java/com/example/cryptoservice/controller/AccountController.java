@@ -20,7 +20,7 @@ public class AccountController {
     private final AccountService accountService;
     private final ModelMapper modelMapper;
 
-    @PostMapping("/{userId}")
+    @PostMapping("/registry/{userId}")
     public ResponseEntity<AccountDto> createAcc(@PathVariable Long userId, @RequestBody AccountDto accountDto) {
         Account account = accountService.createAcc(modelMapper.map(accountDto, Account.class), userId);
         return new ResponseEntity<>(modelMapper.map(account, AccountDto.class), HttpStatus.CREATED);
@@ -32,18 +32,18 @@ public class AccountController {
         return new ResponseEntity<>(resultList, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/details/{id}")
     public ResponseEntity<AccountDetailsDto> getAccountDetailsById(@PathVariable Long id) {
         return new ResponseEntity<>(modelMapper.map(accountService.getById(id), AccountDetailsDto.class), HttpStatus.OK);
     }
 
-    @GetMapping("/user_id/{id}")
+    @GetMapping("/users/{id}")
     public ResponseEntity<List<AccountDto>> getAccountsByUserId(@PathVariable Long id) {
         return new ResponseEntity<>(accountService.getAccsByUserId(id).stream()
                 .map(acc -> modelMapper.map(acc, AccountDto.class)).toList(), HttpStatus.OK);
     }
 
-    @GetMapping("/users/{userId}/accounts/{accountId}")
+    @GetMapping("/users/{userId}/{accountId}")
     public ResponseEntity<AccountDetailsDto> getAccDetailsByUserId(@PathVariable Long userId, @PathVariable Long accountId) {
         return new ResponseEntity<>(modelMapper
                 .map(accountService.getAccountDetails(userId, accountId), AccountDetailsDto.class), HttpStatus.OK);

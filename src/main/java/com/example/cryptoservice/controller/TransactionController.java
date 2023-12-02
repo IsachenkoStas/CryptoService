@@ -1,5 +1,6 @@
 package com.example.cryptoservice.controller;
 
+import com.example.cryptoservice.domain.TransactionType;
 import com.example.cryptoservice.domain.dto.AccountDto;
 import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransactionDetailsDto;
@@ -13,7 +14,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.data.web.SortDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,33 +34,18 @@ public class TransactionController {
     private final ModelMapper modelMapper;
     private final TransactionService transactionService;
 
-    @GetMapping("/sorted-by-amount")
-    public ResponseEntity<List<TransactionDto>> getAllTransactionsSortedByAmount(@SortDefault(sort = "amount",
-            direction = Sort.Direction.DESC) Pageable pageable) {
-        return new ResponseEntity<>(transactionService.getAllSortedByAmount(pageable)
-                .stream()
-                .map(transaction -> modelMapper.map(transaction, TransactionDto.class)).toList(), HttpStatus.OK);
-    }
-
-    @GetMapping("/sorted-by-date")
-    public ResponseEntity<List<TransactionDto>> getAllTransactionsSortedByDate(@SortDefault(sort = "created",
-            direction = Sort.Direction.DESC) Pageable pageable) {
-        return new ResponseEntity<>(transactionService.getAllSortedByDate(pageable)
-                .stream()
-                .map(transaction -> modelMapper.map(transaction, TransactionDto.class)).toList(), HttpStatus.OK);
-    }
-
-    @GetMapping("/get-only-transfers")
-    public ResponseEntity<List<TransactionDto>> getAllTransferTransactions(
-            @PageableDefault(value = 5, page = 0) Pageable pageable,
-            @RequestParam(required = false) String sort) {
-        return new ResponseEntity<>(transactionService.getAllTransferTransactions(pageable)
-                .stream()
-                .map(t -> modelMapper.map(t, TransactionDto.class)).toList(), HttpStatus.OK);
+    @GetMapping("/get-all")
+    public ResponseEntity<Page<TransactionDto>> getAllTransferTransactions(
+            @PageableDefault(value = 10, page = 0, sort = "amount", direction = Sort.Direction.ASC) Pageable pageable,
+            @RequestParam(required = false) TransactionType transactionType) {
+        return new ResponseEntity<>(transactionService.getAllTransactions(pageable, transactionType)
+                .map(t -> modelMapper.map(t, TransactionDto.class)), HttpStatus.OK);
     }
 
     @GetMapping("/users/{userId}/{transactionId}")
-    public ResponseEntity<TransactionDetailsDto> getTransactionDetailsByUserId(@PathVariable Long userId, @PathVariable Long transactionId) {
+    public ResponseEntity<TransactionDetailsDto> getTransactionDetailsByUserId(
+            @PathVariable Long userId,
+            @PathVariable Long transactionId) {
         return new ResponseEntity<>(modelMapper
                 .map(transactionService.getTransactionDetails(userId, transactionId), TransactionDetailsDto.class), HttpStatus.OK);
     }
