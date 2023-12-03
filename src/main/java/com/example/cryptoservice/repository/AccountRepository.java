@@ -23,5 +23,5 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     Page<Account> findAllByAccountType(Pageable pageable, AccountType accountType);
 
-    Account findByCurrencyCodeAndAccountTypeAndUser(CurrencyCode currencyCode, AccountType accountType, CryptoUser user);
+    Optional<Account> findByCurrencyCodeAndAccountTypeAndUser(CurrencyCode currencyCode, AccountType accountType, CryptoUser user);
 }

@@ -107,17 +107,11 @@ public class TransactionServiceImpl implements TransactionService {
 
         account.setBalance(account.getBalance().subtract(deposit.getAmount()));
 
-        Account depAcc = null;
-        try {
-            depAcc = accountRepository
-                    .findByCurrencyCodeAndAccountTypeAndUser(account.getCurrencyCode(), AccountType.DEPOSIT, account.getUser());
-            if (depAcc != null) {
-                depAcc.setBalance(deposit.getAmount().add(depAcc.getBalance()));
-            }
-        } catch (NullPointerException e) {
-            e.getMessage();
-        }
-        if (depAcc == null) {
+        Optional<Account> depAcc = accountRepository
+                .findByCurrencyCodeAndAccountTypeAndUser(account.getCurrencyCode(), AccountType.DEPOSIT, account.getUser());
+        if (depAcc.isPresent()) {
+            depAcc.get().setBalance(account.getBalance().add(deposit.getAmount()));
+        } else {
             Account acc = Account.builder()
                     .accountType(AccountType.DEPOSIT)
                     .balance(deposit.getAmount())
