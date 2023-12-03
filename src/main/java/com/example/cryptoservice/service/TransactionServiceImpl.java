@@ -12,9 +12,11 @@ import com.example.cryptoservice.exception_resolver.NotDepositAccountException;
 import com.example.cryptoservice.exception_resolver.TransactionNotFoundException;
 import com.example.cryptoservice.repository.AccountRepository;
 import com.example.cryptoservice.repository.TransactionRepository;
+import com.example.cryptoservice.security.repository.SecurityCredentialsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +24,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -33,6 +36,7 @@ public class TransactionServiceImpl implements TransactionService {
     private final AccountRepository accountRepository;
     private final CryptoRateService cryptoRateService;
     private final TransactionValidator transactionValidation;
+    private final SecurityCredentialsRepository securityCredentialsRepository;
     private final FeeService feeService;
     public static BigDecimal FEE_INTEREST = new BigDecimal("0.01");
 
@@ -48,15 +52,19 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public Transaction getTransactionDetails(Long userId, Long transactionId) {
+    public Transaction getTransactionDetails(Long transactionId) {
+        String userLogin = SecurityContextHolder.getContext().getAuthentication().getName();
+        Long userId = securityCredentialsRepository.findUserIdByLogin(userLogin);
         CryptoUser user = userService.findById(userId);
         return transactionRepository.findTransactionByIdAndAccount_User(transactionId, user)
-                .orElseThrow(() -> new TransactionNotFoundException("Account with id " + transactionId + " not found"));
+                .orElseThrow(() -> new TransactionNotFoundException("Transaction with id " + transactionId + " not found"));
     }
 
     @Override
-    public List<Transaction> getTransactionsByUserId(Long id) {
-        CryptoUser user = userService.findById(id);
+    public List<Transaction> getAllUserTransactions() {
+        String userLogin = SecurityContextHolder.getContext().getAuthentication().getName();
+        Long userId = securityCredentialsRepository.findUserIdByLogin(userLogin);
+        CryptoUser user = userService.findById(userId);
         return transactionRepository.findByAccount_User(user);
     }
 
@@ -65,7 +73,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Transactional
     @Override
     public void transfer(TransferDto transfer) {
-        Account accountFrom = accountService.getAccountDetails(transfer.getUserId(), transfer.getAccIdFrom());
+        Account accountFrom = accountService.getAccountDetails(transfer.getAccIdFrom());
         Account accountTo = accountService.getById(transfer.getAccIdTo());
         transactionValidation.validateTransfer(transfer, accountFrom, accountTo);
 
@@ -94,22 +102,29 @@ public class TransactionServiceImpl implements TransactionService {
     @Transactional
     @Override
     public void deposit(DepositDto deposit) {
-        Account depAccount = accountService.getAccountDetails(deposit.getUserId(), deposit.getAccId());
-        transactionValidation.validateDeposit(deposit, depAccount);
+        Account account = accountService.getAccountDetails(deposit.getAccId());
+        transactionValidation.validateDeposit(deposit, account);
 
-        depAccount.setBalance(depAccount.getBalance().subtract(deposit.getAmount()));
-        Account acc = Account.builder()
-                .accountType(AccountType.DEPOSIT)
-                .balance(deposit.getAmount())
-                .currencyCode(depAccount.getCurrencyCode())
-                .user(userService.findById(deposit.getUserId()))
-                .build();
-        accountRepository.save(acc);
+        account.setBalance(account.getBalance().subtract(deposit.getAmount()));
+
+        Optional<Account> depAcc = accountRepository
+                .findByCurrencyCodeAndAccountTypeAndUser(account.getCurrencyCode(), AccountType.DEPOSIT, account.getUser());
+        if (depAcc.isPresent()) {
+            depAcc.get().setBalance(account.getBalance().add(deposit.getAmount()));
+        } else {
+            Account acc = Account.builder()
+                    .accountType(AccountType.DEPOSIT)
+                    .balance(deposit.getAmount())
+                    .currencyCode(account.getCurrencyCode())
+                    .user(account.getUser())
+                    .build();
+            accountRepository.save(acc);
+        }
 
         Transaction depositTransaction = Transaction.builder()
                 .amount(deposit.getAmount())
                 .transactionType(TransactionType.DEPOSIT)
-                .account(depAccount)
+                .account(account)
                 .created(LocalDateTime.now())
                 .build();
         transactionRepository.save(depositTransaction);
@@ -118,8 +133,8 @@ public class TransactionServiceImpl implements TransactionService {
     @Transactional
     @Override
     public void withdraw(TransferDto withdraw) {
-        Account depAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getAccIdFrom());
-        Account withdrawAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getAccIdTo());
+        Account depAccount = accountService.getAccountDetails(withdraw.getAccIdFrom());
+        Account withdrawAccount = accountService.getAccountDetails(withdraw.getAccIdTo());
         transactionValidation.validateWithdraw(withdraw, withdrawAccount, depAccount);
 
         withdrawAccount.setBalance(withdrawAccount.getBalance().add(withdraw.getAmount()));
@@ -136,8 +151,8 @@ public class TransactionServiceImpl implements TransactionService {
     @Transactional
     @Override
     public void swap(TransferDto swap) {
-        Account accFrom = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdFrom());
-        Account accTo = accountService.getAccountDetails(swap.getUserId(), swap.getAccIdTo());
+        Account accFrom = accountService.getAccountDetails(swap.getAccIdFrom());
+        Account accTo = accountService.getAccountDetails(swap.getAccIdTo());
         transactionValidation.validateSwap(accFrom, accTo, swap);
 
         CryptoRate targetRate = cryptoRateService.getCurrencyRate(accFrom.getCurrencyCode().toString(), accTo.getCurrencyCode().toString());
@@ -165,8 +180,8 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public Account getMyRewards(Long userId, Long accId) {
-        Account account = accountService.getAccountDetails(userId, accId);
+    public Account getMyRewards(Long accId) {
+        Account account = accountService.getAccountDetails(accId);
         if (!Objects.equals(account.getAccountType(), AccountType.DEPOSIT)) {
             throw new NotDepositAccountException("Account with id: " + accId + " is not deposit account.");
         }

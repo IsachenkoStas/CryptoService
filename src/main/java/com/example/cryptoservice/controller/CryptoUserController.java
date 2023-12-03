@@ -7,8 +7,11 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,14 +26,23 @@ public class CryptoUserController {
     private final ModelMapper modelMapper;
 
     @GetMapping("/get-all")
-    public ResponseEntity<List<UserDto>> getAll() {
-        return new ResponseEntity<>(cryptoUserService.getAllUsers()
-                .stream()
-                .map(user -> modelMapper.map(user, UserDto.class)).toList(), HttpStatus.OK);
+    public ResponseEntity<List<CryptoUser>> getAll() {
+        return new ResponseEntity<>(cryptoUserService.getAllUsers(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<UserDto> getUserById(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(modelMapper.map(cryptoUserService.findById(id), UserDto.class), HttpStatus.OK);
+    @GetMapping("/info")
+    public ResponseEntity<UserDto> getUserInfo() {
+        return new ResponseEntity<>(modelMapper.map(cryptoUserService.getUser(), UserDto.class), HttpStatus.OK);
+    }
+
+    @PutMapping("/edit-user")
+    public ResponseEntity<Void> updateUser(@RequestBody UserDto userDto) {
+        cryptoUserService.updateUser(userDto);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/delete/{userId}")
+    public ResponseEntity<HttpStatus> deleteUser(@PathVariable Long userId) {
+        return new ResponseEntity<>(cryptoUserService.deleteUser(userId) ? HttpStatus.NO_CONTENT : HttpStatus.CONFLICT);
     }
 }

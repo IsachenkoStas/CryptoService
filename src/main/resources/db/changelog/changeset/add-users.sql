@@ -1,8 +1,8 @@
-insert into crypto_users (login, password, user_role)
-values ('Stas', 'Stas', 'ADMIN');
+insert into crypto_users (first_name, last_name)
+values ('Stas', 'Stas');
 
-insert into crypto_users (login, password, user_role)
-values ('FriendlyThug', '52NGG', 'USER');
+insert into crypto_users (first_name, last_name)
+values ('Melon', 'Maks');
 
-insert into crypto_users (login, password, user_role)
-values ('Asap', 'FerG', 'USER');
+insert into crypto_users (first_name, last_name)
+values ('Will', 'Smith');

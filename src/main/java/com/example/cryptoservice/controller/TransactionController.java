@@ -1,11 +1,14 @@
 package com.example.cryptoservice.controller;
 
+import com.example.cryptoservice.domain.CurrencyCode;
+import com.example.cryptoservice.domain.Transaction;
+import com.example.cryptoservice.domain.TransactionFee;
 import com.example.cryptoservice.domain.TransactionType;
 import com.example.cryptoservice.domain.dto.AccountDto;
 import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransactionDetailsDto;
-import com.example.cryptoservice.domain.dto.TransactionDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
+import com.example.cryptoservice.service.FeeService;
 import com.example.cryptoservice.service.TransactionService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -33,26 +36,24 @@ public class TransactionController {
 
     private final ModelMapper modelMapper;
     private final TransactionService transactionService;
+    private final FeeService feeService;
 
     @GetMapping("/get-all")
-    public ResponseEntity<Page<TransactionDto>> getAllTransferTransactions(
-            @PageableDefault(value = 10, page = 0, sort = "amount", direction = Sort.Direction.ASC) Pageable pageable,
+    public ResponseEntity<Page<Transaction>> getAllTransferTransactions(
+            @PageableDefault(value = 5, page = 0, sort = "amount", direction = Sort.Direction.ASC) Pageable pageable,
             @RequestParam(required = false) TransactionType transactionType) {
-        return new ResponseEntity<>(transactionService.getAllTransactions(pageable, transactionType)
-                .map(t -> modelMapper.map(t, TransactionDto.class)), HttpStatus.OK);
+        return new ResponseEntity<>(transactionService.getAllTransactions(pageable, transactionType), HttpStatus.OK);
     }
 
-    @GetMapping("/users/{userId}/{transactionId}")
-    public ResponseEntity<TransactionDetailsDto> getTransactionDetailsByUserId(
-            @PathVariable Long userId,
-            @PathVariable Long transactionId) {
+    @GetMapping("/details/{transactionId}")
+    public ResponseEntity<TransactionDetailsDto> getTransactionDetails(@PathVariable Long transactionId) {
         return new ResponseEntity<>(modelMapper
-                .map(transactionService.getTransactionDetails(userId, transactionId), TransactionDetailsDto.class), HttpStatus.OK);
+                .map(transactionService.getTransactionDetails(transactionId), TransactionDetailsDto.class), HttpStatus.OK);
     }
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity<List<TransactionDetailsDto>> getTransactionsById(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(transactionService.getTransactionsByUserId(id).stream()
+    @GetMapping("/all-mine")
+    public ResponseEntity<List<TransactionDetailsDto>> getAllUserTransactions() {
+        return new ResponseEntity<>(transactionService.getAllUserTransactions().stream()
                 .map(acc -> modelMapper.map(acc, TransactionDetailsDto.class)).toList(), HttpStatus.OK);
     }
 
@@ -80,9 +81,16 @@ public class TransactionController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping("/my-rewards/{userId}/{accId}")
-    public ResponseEntity<AccountDto> getMyRewards(@PathVariable Long userId, @PathVariable Long accId) {
+    @GetMapping("/my-rewards/{accId}")
+    public ResponseEntity<AccountDto> getMyRewards(@PathVariable Long accId) {
         return new ResponseEntity<>(modelMapper
-                .map(transactionService.getMyRewards(userId, accId), AccountDto.class), HttpStatus.OK);
+                .map(transactionService.getMyRewards(accId), AccountDto.class), HttpStatus.OK);
+    }
+
+    @GetMapping("/all-fees")
+    public ResponseEntity<Page<TransactionFee>> getAllFees(
+            @PageableDefault(value = 5, page = 0, sort = "amount", direction = Sort.Direction.DESC) Pageable pageable,
+            @RequestParam(required = false) CurrencyCode currencyCode) {
+        return new ResponseEntity<>(feeService.getAll(pageable, currencyCode), HttpStatus.OK);
     }
 }

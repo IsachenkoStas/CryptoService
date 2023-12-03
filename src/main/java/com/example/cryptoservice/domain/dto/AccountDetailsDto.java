@@ -13,5 +13,4 @@ public class AccountDetailsDto {
         private CurrencyCode currencyCode;
         private AccountType accountType;
         private LocalDateTime created;
-        private UserDto user;
 }

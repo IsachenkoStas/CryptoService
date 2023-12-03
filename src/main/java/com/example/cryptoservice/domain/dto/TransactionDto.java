@@ -1,6 +1,5 @@
 package com.example.cryptoservice.domain.dto;
 
-import com.example.cryptoservice.domain.Account;
 import com.example.cryptoservice.domain.TransactionType;
 import lombok.Data;
 

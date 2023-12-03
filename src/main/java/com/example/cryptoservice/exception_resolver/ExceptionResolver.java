@@ -1,11 +1,12 @@
 package com.example.cryptoservice.exception_resolver;
 
 import lombok.extern.slf4j.Slf4j;
-import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import java.sql.SQLIntegrityConstraintViolationException;
 
 @Slf4j
 @ControllerAdvice
@@ -59,9 +60,21 @@ public class ExceptionResolver {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(JdbcSQLIntegrityConstraintViolationException.class)
-    public ResponseEntity<String> jdbcSQLIntegrityConstraintViolationException(JdbcSQLIntegrityConstraintViolationException e) {
+    @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
+    public ResponseEntity<String> jdbcSQLIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException e) {
         log.error(e.getMessage());
         return new ResponseEntity<>("Violation of uniqueness", HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(SameUserInDatabaseException.class)
+    public ResponseEntity<String> SameUserInDatabaseException(SameUserInDatabaseException e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(NoAccessByLoginException.class)
+    public ResponseEntity<String> noAccessByLoginException(NoAccessByLoginException e) {
+        log.error(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.FORBIDDEN);
     }
 }
