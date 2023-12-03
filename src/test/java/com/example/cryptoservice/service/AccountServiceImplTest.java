@@ -23,7 +23,7 @@ import java.util.List;
 class AccountServiceImplTest {
 
     @InjectMocks
-    AccountService accountService;
+    AccountServiceImpl accountService;
 
     @Mock
     AccountRepository accountRepository;

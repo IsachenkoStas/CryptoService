@@ -19,7 +19,7 @@ import java.util.List;
 class CryptoRateServiceImplTest {
 
     @InjectMocks
-    CryptoRateService cryptoRateService;
+    CryptoRateServiceImpl cryptoRateService;
 
     @Mock
     CryptoRateRepository cryptoRateRepository;

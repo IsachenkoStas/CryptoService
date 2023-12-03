@@ -18,7 +18,7 @@ import java.util.List;
 class CryptoUserServiceImplTest {
 
     @InjectMocks
-    CryptoUserService cryptoUserService;
+    CryptoUserServiceImpl cryptoUserService;
 
     @Mock
     CryptoUserRepository cryptoUserRepository;
@@ -38,7 +38,7 @@ class CryptoUserServiceImplTest {
     }
 
     @Test
-    void getAllRates() {
+    void getAll() {
         Mockito.when(cryptoUserRepository.findAll()).thenReturn(userList);
 
         List<CryptoUser> resultList = cryptoUserService.getAllUsers();

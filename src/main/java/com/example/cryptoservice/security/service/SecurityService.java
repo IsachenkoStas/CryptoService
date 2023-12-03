@@ -33,7 +33,7 @@ public class SecurityService {
         return Optional.empty();
     }
 
-    @Transactional(rollbackOn = Exception.class)
+    @Transactional
     public void registration(RegistrationDTO registrationDTO) {
         Optional<SecurityCredentials> result = securityCredentialsRepository.getByLogin(registrationDTO.getLogin());
         if (result.isPresent()) {

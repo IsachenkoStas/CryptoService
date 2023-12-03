@@ -21,7 +21,7 @@ import java.util.List;
 class TransactionServiceImplTest {
 
     @InjectMocks
-    TransactionService transactionService;
+    TransactionServiceImpl transactionService;
 
     @Mock
     TransactionRepository transactionRepository;

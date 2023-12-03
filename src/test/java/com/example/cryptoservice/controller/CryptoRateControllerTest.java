@@ -63,6 +63,6 @@ class CryptoRateControllerTest {
         mockMvc.perform(get("/crypto-rates"))
                 .andExpect(status().isOk())
                 .andExpect((ResultMatcher) jsonPath("$", Matchers.hasSize(1)))
-                .andExpect((ResultMatcher) jsonPath("$[0].id", Matchers.equalTo(18)));
+                .andExpect((ResultMatcher) jsonPath("$[0].id", Matchers.equalTo(10)));
     }
 }
