@@ -22,10 +22,11 @@ public class CryptoUserController {
     private final CryptoUserService cryptoUserService;
     private final ModelMapper modelMapper;
 
-    @GetMapping
-    public ResponseEntity<List<CryptoUser>> getAll() {
-        List<CryptoUser> resultList = cryptoUserService.getAllUsers();
-        return new ResponseEntity<>(resultList, HttpStatus.OK);
+    @GetMapping("/get-all")
+    public ResponseEntity<List<UserDto>> getAll() {
+        return new ResponseEntity<>(cryptoUserService.getAllUsers()
+                .stream()
+                .map(user -> modelMapper.map(user, UserDto.class)).toList(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

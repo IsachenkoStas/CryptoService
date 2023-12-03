@@ -9,17 +9,8 @@ import java.time.LocalDateTime;
 
 @Data
 public class TransactionDto {
-
     private BigDecimal amount;
     private TransactionType transactionType;
-    private Account account;
+    private AccountDetailsDto account;
     private LocalDateTime created;
-
-
-    public TransactionDto(BigDecimal amount, TransactionType transactionType, Account account, LocalDateTime created) {
-        this.amount = amount;
-        this.transactionType = transactionType;
-        this.account = account;
-        this.created = created;
-    }
 }

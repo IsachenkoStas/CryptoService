@@ -8,12 +8,13 @@ import com.example.cryptoservice.domain.Transaction;
 import com.example.cryptoservice.domain.TransactionType;
 import com.example.cryptoservice.domain.dto.DepositDto;
 import com.example.cryptoservice.domain.dto.TransferDto;
-import com.example.cryptoservice.domain.dto.WithdrawDto;
 import com.example.cryptoservice.exception_resolver.NotDepositAccountException;
 import com.example.cryptoservice.exception_resolver.TransactionNotFoundException;
 import com.example.cryptoservice.repository.AccountRepository;
 import com.example.cryptoservice.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +32,20 @@ public class TransactionServiceImpl implements TransactionService {
     private final AccountService accountService;
     private final AccountRepository accountRepository;
     private final CryptoRateService cryptoRateService;
-    private final TransactionValidationService transactionValidation;
+    private final TransactionValidator transactionValidation;
+    private final FeeService feeService;
+    public static BigDecimal FEE_INTEREST = new BigDecimal("0.01");
+
+    @Override
+    public Page<Transaction> getAllTransactions(Pageable pageable, TransactionType transactionType) {
+        Page<Transaction> transactions;
+        if (transactionType != null) {
+            transactions = transactionRepository.findAllByTransactionType(transactionType, pageable);
+        } else {
+            transactions = transactionRepository.findAll(pageable);
+        }
+        return transactions;
+    }
 
     @Override
     public Transaction getTransactionDetails(Long userId, Long transactionId) {
@@ -46,12 +60,18 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.findByAccount_User(user);
     }
 
+    //TODO: ONE TEST PER ONE SERVICE
+
     @Transactional
     @Override
     public void transfer(TransferDto transfer) {
         Account accountFrom = accountService.getAccountDetails(transfer.getUserId(), transfer.getAccIdFrom());
         Account accountTo = accountService.getById(transfer.getAccIdTo());
         transactionValidation.validateTransfer(transfer, accountFrom, accountTo);
+
+        BigDecimal feeAmount = feeService.fee(transfer, accountFrom);
+
+        accountFrom.setBalance(accountFrom.getBalance().subtract(transfer.getAmount().add(feeAmount)));
         accountTo.setBalance(accountTo.getBalance().add(transfer.getAmount()));
 
         Transaction transactionAccFrom = Transaction.builder()
@@ -97,9 +117,9 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Transactional
     @Override
-    public void withdraw(WithdrawDto withdraw) {
-        Account withdrawAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getAccId());
-        Account depAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getDepAccId());
+    public void withdraw(TransferDto withdraw) {
+        Account depAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getAccIdFrom());
+        Account withdrawAccount = accountService.getAccountDetails(withdraw.getUserId(), withdraw.getAccIdTo());
         transactionValidation.validateWithdraw(withdraw, withdrawAccount, depAccount);
 
         withdrawAccount.setBalance(withdrawAccount.getBalance().add(withdraw.getAmount()));
@@ -123,7 +143,9 @@ public class TransactionServiceImpl implements TransactionService {
         CryptoRate targetRate = cryptoRateService.getCurrencyRate(accFrom.getCurrencyCode().toString(), accTo.getCurrencyCode().toString());
         BigDecimal rate = targetRate.getRate();
 
-        accFrom.setBalance(accFrom.getBalance().subtract(swap.getAmount()));
+        BigDecimal feeAmount = feeService.fee(swap, accFrom);
+
+        accFrom.setBalance(accFrom.getBalance().subtract(swap.getAmount().add(feeAmount)));
         Transaction transactionAccFrom = Transaction.builder()
                 .amount(swap.getAmount())
                 .transactionType(TransactionType.SWAP)
@@ -143,11 +165,11 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public BigDecimal checkMyRewards(Long userId, Long accId) {
+    public Account getMyRewards(Long userId, Long accId) {
         Account account = accountService.getAccountDetails(userId, accId);
         if (!Objects.equals(account.getAccountType(), AccountType.DEPOSIT)) {
             throw new NotDepositAccountException("Account with id: " + accId + " is not deposit account.");
         }
-        return account.getBalance();
+        return account;
     }
 }

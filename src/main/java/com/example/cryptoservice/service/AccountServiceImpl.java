@@ -23,6 +23,7 @@ public class AccountServiceImpl implements AccountService {
         account.setUser(user);
         return repository.save(account);
     }
+    //при нарушение юник индекса выбрасывается 500 ошибка
 
     @Override
     public List<Account> getAllAccounts() {

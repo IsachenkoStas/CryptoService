@@ -2,13 +2,11 @@ package com.example.cryptoservice.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Index;
+import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
@@ -20,27 +18,28 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@Entity(name = "transactions")
+@Entity(name = "transaction_fees")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Transaction {
+@Table(indexes = {
+        @Index(name = "transaction_fees_currency_index",
+                columnList = "currency", unique = true)
+})
+public class TransactionFee {
+    //TODO: CHECK FEES ONLY FOR ADMIN
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "amount", nullable = false, precision = 15, scale = 2)
+    @Column(name = "currency", nullable = false)
+    private String currency;
+
+    @Column(name = "amount", nullable = false, precision = 18, scale = 10)
     private BigDecimal amount;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private TransactionType transactionType;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(nullable = false)
-    private Account account;
-
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created")
-    private LocalDateTime created;
+    @Column(name = "last_updated")
+    private LocalDateTime last_updated;
 }

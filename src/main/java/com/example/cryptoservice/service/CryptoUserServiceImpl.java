@@ -23,4 +23,9 @@ public class CryptoUserServiceImpl implements CryptoUserService {
     public CryptoUser findById(Long id) {
         return cryptoUserRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User with id " + id + " not found"));
     }
+
+    @Override
+    public Long countByLogin(String login) {
+        return cryptoUserRepository.countByLogin(login);
+    }
 }

@@ -46,16 +46,6 @@ public class Account {
     @Enumerated(EnumType.STRING)
     private AccountType accountType;
 
-    @Column(name = "interest_rate")
-    private BigDecimal interestRate;
-
-    @Column(name = "last_interest_application")
-    private LocalDateTime lastInterestApplication;
-
-    @Column(name = "interest_compounding_period")
-    @Enumerated(EnumType.STRING)
-    private InterestCompoundingPeriod interestCompoundingPeriod;
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created")
     private LocalDateTime created;
