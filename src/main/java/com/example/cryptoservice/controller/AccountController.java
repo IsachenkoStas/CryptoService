@@ -13,7 +13,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,7 +39,7 @@ public class AccountController {
 
     @GetMapping("/all")
     public ResponseEntity<Page<Account>> getAll(
-            @PageableDefault(value = 10, page = 0, sort = "balance", direction = Sort.Direction.ASC) Pageable pageable,
+            @PageableDefault(value = 5, page = 0, sort = "balance", direction = Sort.Direction.ASC) Pageable pageable,
             @RequestParam(required = false) AccountType accountType) {
         return new ResponseEntity<>(accountService.getAllAccounts(pageable, accountType), HttpStatus.OK);
     }

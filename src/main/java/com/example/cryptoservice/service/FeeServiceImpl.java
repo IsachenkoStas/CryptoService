@@ -41,6 +41,4 @@ public class FeeServiceImpl implements FeeService {
         }
         return fees;
     }
-
-    //TODO: GETALL METHOD FOR ADMIN
 }
