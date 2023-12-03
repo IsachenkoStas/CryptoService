@@ -6,6 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CryptoUserRepository extends JpaRepository<CryptoUser, Long> {
-
-    Long countByLogin(String login);
 }

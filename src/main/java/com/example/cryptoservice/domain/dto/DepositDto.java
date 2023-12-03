@@ -10,9 +10,6 @@ import java.math.BigDecimal;
 public class DepositDto {
 
     @NotNull
-    private Long userId;
-
-    @NotNull
     private Long accId;
 
     @NotNull

@@ -1,4 +1,5 @@
 package com.example.cryptoservice.domain;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ public class CryptoRate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "base_currency",nullable = false)
+    @Column(name = "base_currency", nullable = false)
     private String baseCurrency;
 
     @Column(name = "target_currency", nullable = false)

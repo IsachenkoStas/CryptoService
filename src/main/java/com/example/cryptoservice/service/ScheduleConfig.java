@@ -6,6 +6,7 @@ import com.example.cryptoservice.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -15,9 +16,10 @@ import java.util.List;
 public class ScheduleConfig {
 
     private final AccountRepository repository;
-    private final static String CRON = "*/30 * * * * *";  //20 4 * * *
+    private final static String CRON = "*/30 * * * * *";
     private final static Double DEPOSIT_INTEREST = 0.01;
 
+    @Transactional
     @Scheduled(cron = CRON)
     public void updateAllDepositAccounts() {
         List<Account> depositAccounts = repository.findAllByAccountType(AccountType.DEPOSIT);

@@ -13,3 +13,5 @@ databaseChangeLog:
       file: db/changelog/changeset/add-unique-index.sql
   - include:
       file: db/changelog/changeset/add-transaction-fees.sql
+  - include:
+    - file: db/changelog/changeset/add-security-credentials.sql

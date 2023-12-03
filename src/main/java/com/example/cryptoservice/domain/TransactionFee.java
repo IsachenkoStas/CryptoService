@@ -2,6 +2,8 @@ package com.example.cryptoservice.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,7 +26,7 @@ import java.time.LocalDateTime;
 @Builder
 @Table(indexes = {
         @Index(name = "transaction_fees_currency_index",
-                columnList = "currency", unique = true)
+                columnList = "currency_code", unique = true)
 })
 public class TransactionFee {
     //TODO: CHECK FEES ONLY FOR ADMIN
@@ -33,13 +35,14 @@ public class TransactionFee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "currency", nullable = false)
-    private String currency;
+    @Column(name = "currency_code", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CurrencyCode currencyCode;
 
     @Column(name = "amount", nullable = false, precision = 18, scale = 10)
     private BigDecimal amount;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "last_updated")
-    private LocalDateTime last_updated;
+    private LocalDateTime lastUpdated;
 }

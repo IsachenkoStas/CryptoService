@@ -1,6 +1,7 @@
 package com.example.cryptoservice.service;
 
 import com.example.cryptoservice.domain.CryptoUser;
+import com.example.cryptoservice.domain.dto.UserDto;
 
 import java.util.List;
 
@@ -9,5 +10,9 @@ public interface CryptoUserService {
 
     CryptoUser findById(Long id);
 
-    Long countByLogin(String login);
+    void updateUser(UserDto userDto);
+
+    boolean deleteUser(Long userId);
+
+    CryptoUser getUser();
 }

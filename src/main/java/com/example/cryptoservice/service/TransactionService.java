@@ -12,9 +12,9 @@ import java.util.List;
 
 public interface TransactionService {
 
-    Transaction getTransactionDetails(Long userId, Long transactionId);
+    Transaction getTransactionDetails(Long transactionId);
 
-    List<Transaction> getTransactionsByUserId(Long id);
+    List<Transaction> getAllUserTransactions();
 
     void transfer(TransferDto transfer);
 
@@ -24,7 +24,7 @@ public interface TransactionService {
 
     void swap(TransferDto swap);
 
-    Account getMyRewards(Long userId, Long accId);
+    Account getMyRewards(Long accId);
 
     Page<Transaction> getAllTransactions(Pageable pageable, TransactionType transactionType);
 }
